@@ -317,6 +317,78 @@ footer b{color:#fff}
 #tip b{color:var(--sky3)}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;opacity:0;pointer-events:none;transition:all .25s;z-index:70;max-width:calc(100% - 32px);text-align:center}
 .toast.on{opacity:1;transform:translateX(-50%)}
+
+/* ---------- compact result pictures ---------- */
+.ex.more{background:var(--skysoft);border-color:var(--skysoft);color:var(--deep);font-weight:700}
+.realsite{padding:16px 20px 0;display:flex;flex-direction:column;gap:8px}
+.addr{display:flex;align-items:center;gap:10px;border-radius:18px;padding:12px 14px;background:#fff;border:3px solid var(--line);box-shadow:var(--shadow);flex-wrap:wrap}
+.addr .ai{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none}
+.addr.bad{border-color:#FCA5A5}.addr.bad .ai{background:var(--high-soft);color:var(--high)}
+.addr.mid{border-color:#FCD34D}.addr.mid .ai{background:var(--verify-soft);color:var(--verify)}
+.addr.ok{border-color:#86EFAC}.addr.ok .ai{background:var(--low-soft);color:var(--low)}
+.addr .lab{font:700 12px/1 var(--disp);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.addr .dom{font:700 clamp(17px,2.4vw,22px)/1.2 var(--mono);color:var(--ink);word-break:break-all;flex-basis:100%}
+.mask{display:flex;align-items:center;gap:8px;background:var(--high-soft);color:var(--high);border-radius:14px;padding:9px 12px;font:600 14px/1.3 var(--body);flex-wrap:wrap}
+.mask b{font-family:var(--mono)} .mask s{font-family:var(--mono);opacity:.8}
+.appcard{margin:16px 20px 0;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;background:#fff;border:2px solid var(--line);border-radius:20px;padding:12px;position:relative;box-shadow:var(--shadow)}
+.aicon{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#7DD3FC,#0284C7);color:#fff}
+.aicon.apk{background:linear-gradient(135deg,#FCD34D,#D97706)}
+.aicon .ico{width:32px;height:32px}
+.ainfo{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ainfo b{font:800 18px/1.2 var(--disp)} .ainfo span{font-size:13.5px;color:var(--muted)} .ainfo code{font:12px var(--mono);color:var(--muted);word-break:break-all}
+.stamps{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.stamps:empty{display:none}
+.stamp{font:800 12px/1 var(--disp);letter-spacing:.06em;color:var(--high);border:2.5px solid var(--high);border-radius:8px;padding:6px 9px;transform:rotate(-3deg);background:#fff}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;padding:10px 20px 0}
+.ptile{border-radius:16px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font:700 12.5px/1.2 var(--body)}
+.ptile .pi2{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#fff}
+.ptile.hi{background:var(--high-soft);color:var(--high)} .ptile.md{background:var(--verify-soft);color:#92400E}
+.setdet summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.setdet summary::-webkit-details-marker{display:none}
+.setdet[open] summary .chev{transform:rotate(180deg)}
+.setdet .setbody{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+
+/* ---------- assistant ---------- */
+.as-launch{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:45;width:72px;height:80px;border:0;background:transparent;cursor:pointer;padding:0;filter:drop-shadow(0 10px 18px rgba(2,132,199,.45));animation:bob 3s ease-in-out infinite}
+.as-launch svg{width:100%;height:100%}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.as-hello{position:fixed;right:98px;bottom:calc(40px + env(safe-area-inset-bottom,0px));z-index:45;background:#fff;color:var(--ink);border-radius:18px 18px 4px 18px;padding:12px 34px 12px 14px;box-shadow:0 12px 30px rgba(11,37,69,.2);font:600 14.5px/1.35 var(--body);max-width:230px;cursor:pointer}
+.as-hello b{display:block;font:800 16px/1.2 var(--disp);color:var(--deep)}
+.as-hello .x{position:absolute;top:6px;right:6px;border:0;background:var(--skybg);border-radius:50%;width:22px;height:22px;cursor:pointer;color:var(--muted);display:grid;place-items:center;padding:0}
+.as-hello .x .ico{width:14px;height:14px}
+.as-panel{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;width:min(380px,calc(100vw - 32px));height:min(600px,calc(100vh - 110px));background:#fff;border-radius:26px;box-shadow:0 24px 60px rgba(11,37,69,.35);display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line)}
+@media (max-width:520px){.as-panel{right:0;left:0;bottom:0;width:100%;height:min(78vh,620px);border-radius:24px 24px 0 0}.as-hello{right:92px}}
+.as-head{background:linear-gradient(135deg,#0284C7,#38BDF8);color:#fff;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.as-head svg.as-av{width:40px;height:46px;flex:none}
+.as-head b{display:block;font:800 18px/1.1 var(--disp)} .as-head small{font-size:12px;opacity:.9}
+.as-head .as-x{margin-left:auto;border:0;background:rgba(255,255,255,.2);color:#fff;border-radius:50%;width:34px;height:34px;cursor:pointer;display:grid;place-items:center;flex:none}
+.as-body{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--pat-dots) 0 0/20px 20px,var(--skybg)}
+.as-msg{max-width:88%;padding:10px 12px;border-radius:16px 16px 16px 4px;background:#fff;font-size:14.5px;line-height:1.45;box-shadow:0 2px 6px rgba(11,37,69,.06);animation:pop .3s ease both}
+.as-msg.me{align-self:flex-end;background:var(--sky);color:#fff;border-radius:16px 16px 4px 16px;white-space:pre-wrap;word-break:break-word}
+.as-msg ol{margin:6px 0 0;padding-left:20px} .as-msg li{margin-bottom:4px}
+.as-msg a{color:var(--deep);font-weight:700}
+.as-card{border-radius:14px;padding:10px 12px;color:#fff;margin-top:6px}
+.as-card b{display:block;font:800 16px/1.2 var(--disp)}
+.as-chips{display:flex;flex-wrap:wrap;gap:6px}
+.as-chip{border:2px solid var(--sky3);background:#fff;color:var(--deep);border-radius:999px;padding:7px 11px;font:700 13.5px/1.2 var(--disp);cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.as-chip:hover{background:var(--skysoft)}
+.as-chip.red{border-color:#FCA5A5;color:var(--high)}
+.as-chip .ico{width:16px;height:16px}
+.as-foot{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:#fff}
+.as-foot textarea{flex:1;resize:none;height:44px;max-height:120px;font:14.5px/1.4 var(--body);border:2px solid var(--line);border-radius:14px;padding:10px 12px;background:var(--skybg);color:var(--ink)}
+.as-foot textarea:focus{outline:none;border-color:var(--sky)}
+.as-send{width:44px;height:44px;border:0;border-radius:14px;background:linear-gradient(135deg,#38BDF8,#0284C7);color:#fff;cursor:pointer;display:grid;place-items:center;flex:none}
+.as-typing{display:inline-flex;gap:4px}.as-typing i{width:7px;height:7px;border-radius:50%;background:var(--sky3);animation:blink 1s infinite}
+.as-typing i:nth-child(2){animation-delay:.15s}.as-typing i:nth-child(3){animation-delay:.3s}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+.spot{position:fixed;z-index:55;border-radius:16px;box-shadow:0 0 0 4px #FFC53D,0 0 0 9999px rgba(11,37,69,.55);pointer-events:none;transition:all .3s ease}
+.stepb{position:fixed;z-index:56;width:min(320px,calc(100vw - 32px));background:#fff;border-radius:20px;padding:14px;box-shadow:0 20px 50px rgba(11,37,69,.35);display:flex;flex-direction:column;gap:8px}
+.stepb .sh{display:flex;gap:10px;align-items:center}
+.stepb .sh svg{width:38px;height:44px;flex:none}
+.stepb .sh small{font:700 12px var(--mono);color:var(--sky)}
+.stepb .sh b{display:block;font:800 17px/1.2 var(--disp)}
+.stepb p{margin:0;font-size:14.5px;color:var(--ink)}
+.stepb .row{display:flex;gap:6px;justify-content:flex-end;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -432,7 +504,6 @@ footer b{color:#fff}
   </section>
 </main>
 <footer><div class="wrap" id="foot"></div></footer>
-<button class="fab" type="button" id="fab" data-tip=""><svg class="ico" viewBox="0 0 24 24"><path d="M12 3 20 6v6c0 5-3.5 8.3-8 9.5C7.5 20.3 4 17 4 12V6Z"/><path d="m9 12 2 2 4-4"/></svg></button>
 <div id="tip" role="tooltip"></div>
 <div class="toast" id="toast" role="status"></div>
 
@@ -1073,7 +1144,20 @@ const I = {
   star:'<path d="m12 2 3 7 7 .6-5.3 4.6L18.4 21 12 17.3 5.6 21l1.7-6.8L2 9.6 9 9Z"/>',
   search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
   server:'<rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><path d="M6 7h.01M6 17h.01"/>',
-  x:'<path d="M18 6 6 18M6 6l12 12"/>'
+  x:'<path d="M18 6 6 18M6 6l12 12"/>',
+  mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
+  eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+  layers:'<path d="m12 2 10 5-10 5L2 7Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>',
+  bell:'<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+  download:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/>',
+  users:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
+  mic:'<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10a7 7 0 0 1-14 0M12 17v4"/>',
+  camera:'<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3Z"/><circle cx="12" cy="13" r="3"/>',
+  mappin:'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+  send:'<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+  info:'<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+  sparkle:'<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9Z"/><path d="M19 17v4M17 19h4"/>'
 };
 const ico = (n, st) => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"${st ? ` style="${st}"` : ""}>${I[n] || I.shield}</svg>`;
 const SH = "M60 0 120 22v48c0 42-26 70-60 84C26 140 0 112 0 70V22Z";
@@ -1156,6 +1240,9 @@ function verdictArt(v){
     : `<text x="60" y="100" font-size="60" font-weight="800" text-anchor="middle" fill="#64748B" font-family="sans-serif">?</text>`;
   return `<svg viewBox="0 0 120 154" style="width:100%;height:auto;display:block" aria-hidden="true"><path d="${SH}" fill="#fff"/>${inner}</svg>`;
 }
+
+/* friendly shield mascot for the assistant */
+function mascot(cls){ return `<svg class="${cls || ""}" viewBox="0 0 120 140" aria-hidden="true"><defs><linearGradient id="msg${cls || "x"}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7DD3FC"/><stop offset="1" stop-color="#0284C7"/></linearGradient></defs><path d="M60 4 112 22v44c0 38-24 62-52 70C32 128 8 104 8 66V22Z" fill="url(#msg${cls || "x"})" stroke="#fff" stroke-width="5"/><ellipse cx="42" cy="62" rx="11" ry="13" fill="#fff"/><ellipse cx="78" cy="62" rx="11" ry="13" fill="#fff"/><circle cx="44" cy="65" r="6" fill="#0B2545"/><circle cx="80" cy="65" r="6" fill="#0B2545"/><circle cx="46" cy="62" r="2" fill="#fff"/><circle cx="82" cy="62" r="2" fill="#fff"/><path d="M44 90q16 14 32 0" stroke="#0B2545" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="30" cy="84" r="6" fill="#FB7185" opacity=".7"/><circle cx="90" cy="84" r="6" fill="#FB7185" opacity=".7"/></svg>`; }
 
 /* ================= UI text: English + easy, everyday Bangla (bKash-style: common English words kept) ================= */
 const T = {
@@ -1423,6 +1510,42 @@ const T = {
  }
 };
 
+/* ---------- Compact copy: less text on screen, details go into hover/tap tips ---------- */
+Object.assign(T.en, {
+  chSub:"Hover or tap anything to learn more.", scSub:"", ftSub:"", tpSub:"", pvSub:"",
+  bdSub:"It warns before the code is shared.",
+  stats:[["0.991","Bangla SMS test score","Stage A baseline|macro-F1 on 1,401 test messages from a public Bengali SMS dataset. Single messages only; our goal is whole conversations."],["0.989","even with fake letters","E6 pilot|Look-alike letters cut the baseline's recall to 0.797. Our normaliser restored 0.989. Tested on known tricks only."],["12/12","demo chats right","Prototype|8 scams flagged, 4 real messages left calm. All examples are fictional."]],
+  bdSrcTip:"Where these numbers come from|Research results from the proposal. The live score in the checker is an uncalibrated rule indicator, not a probability.",
+  fileEx:[["fake","Fake bKash app"],["disguised","Fake PDF"],["calc","Calculator app"]],
+  fileNote:"Never opened · never uploaded", fileNoteTip:"Your file stays here|We read it on this device, then drop it. Nothing is installed, run or uploaded.",
+  more:n=>`More (${n})`, less:"Less",
+  realSite:"Real website", pretends:"Pretends to be", usesName:"Uses the name", hiddenPart:"Hidden decoy", details:"Details",
+  fileDetails:"File details", wants:"What this app wants", notOfficial:"NOT OFFICIAL", officialStamp:"OFFICIAL NAME", disguisedStamp:"DISGUISED", knownStamp:"KNOWN BAD",
+  permShort:{READ_SMS:"Reads SMS", RECEIVE_SMS:"Catches OTP", SEND_SMS:"Sends SMS", BIND_ACCESSIBILITY_SERVICE:"Controls screen", SYSTEM_ALERT_WINDOW:"Fake screens", BIND_NOTIFICATION_LISTENER_SERVICE:"Reads alerts", REQUEST_INSTALL_PACKAGES:"Installs apps", READ_CONTACTS:"Reads contacts", CALL_PHONE:"Makes calls", READ_CALL_LOG:"Call history", READ_PHONE_STATE:"Phone details", BIND_DEVICE_ADMIN:"Hard to remove", QUERY_ALL_PACKAGES:"Sees your apps", RECORD_AUDIO:"Microphone", CAMERA:"Camera", ACCESS_FINE_LOCATION:"Location"},
+  linkActShort:{delete:"Don't open. Delete it.", dont_open:"Don't open it", careful:"Be careful", short:"Ask for the full link", use_app:"Use the official app", your_choice:"Never type PIN or OTP"},
+  fileActShort:{store_only:"Play Store only", never_run:"Never run it", dont_open:"Don't open it", no_macros:"No macros", delete:"Delete it", careful:"Be careful"},
+  fileDosShort:{store:"Play Store only", delete:"Delete the file", access:"No “Accessibility”", call:"Call the official number"},
+  settingsTitle:"Settings",
+  foot:'<b>FraudShield BD</b> · research prototype by Fabliha Afia (CSE, BUET) · ZRF ভবিষ্যৎ বিজ্ঞানীর খোঁজে ২০২৬<br>Not affiliated with bKash, Nagad, Rocket or any bank · Examples are fictional · Scammed? Call 999 or your provider (bKash 16247 · Nagad 16167 · Rocket 16216)'
+});
+Object.assign(T.bn, {
+  chSub:"যেকোনো কিছুর ওপর মাউস রাখুন বা চাপ দিন, বিস্তারিত দেখবেন।", scSub:"", ftSub:"", tpSub:"", pvSub:"",
+  bdSub:"কোড দেওয়ার আগেই সতর্ক করে।",
+  stats:[["0.991","বাংলা SMS টেস্টে স্কোর","Stage A বেসলাইন|একটা পাবলিক বাংলা SMS ডেটাসেটের ১,৪০১টা টেস্ট মেসেজে macro-F1। শুধু একটা একটা মেসেজ; আমাদের লক্ষ্য পুরো চ্যাট।"],["0.989","নকল অক্ষরেও ঠিক থাকে","E6 পাইলট|নকল অক্ষরে বেসলাইন ০.৭৯৭-এ নামে। আমাদের নর্মালাইজার ০.৯৮৯ ফিরিয়ে আনে। শুধু চেনা কৌশলে পরীক্ষা।"],["12/12","ডেমো চ্যাটে ঠিক","প্রোটোটাইপ|৮টা স্ক্যাম ধরা, ৪টা আসল মেসেজে শান্ত। সব উদাহরণ বানানো।"]],
+  bdSrcTip:"সংখ্যাগুলো কোথা থেকে|প্রপোজালের গবেষণার ফলাফল। চেকারের লাইভ স্কোর রুল-ভিত্তিক, সম্ভাবনা না।",
+  fileEx:[["fake","নকল বিকাশ অ্যাপ"],["disguised","নকল PDF"],["calc","ক্যালকুলেটর অ্যাপ"]],
+  fileNote:"খোলা হয় না · আপলোড হয় না", fileNoteTip:"ফাইল আপনার কাছেই থাকে|এই ফোনেই পড়ি, তারপর মুছে ফেলি। কিছু ইনস্টল, চালু বা আপলোড হয় না।",
+  more:n=>`আরও (${n})`, less:"কম দেখান",
+  realSite:"আসল ওয়েবসাইট", pretends:"সাজছে যেন", usesName:"নাম ব্যবহার করছে", hiddenPart:"লুকানো ধোঁকা", details:"বিস্তারিত",
+  fileDetails:"ফাইলের বিস্তারিত", wants:"অ্যাপটা যা চায়", notOfficial:"অফিশিয়াল না", officialStamp:"অফিশিয়াল নাম", disguisedStamp:"ছদ্মবেশী", knownStamp:"চেনা খারাপ",
+  permShort:{READ_SMS:"SMS পড়ে", RECEIVE_SMS:"OTP ধরে", SEND_SMS:"SMS পাঠায়", BIND_ACCESSIBILITY_SERVICE:"স্ক্রিন চালায়", SYSTEM_ALERT_WINDOW:"নকল স্ক্রিন", BIND_NOTIFICATION_LISTENER_SERVICE:"নোটিফিকেশন পড়ে", REQUEST_INSTALL_PACKAGES:"অ্যাপ ইনস্টল করে", READ_CONTACTS:"কন্টাক্ট পড়ে", CALL_PHONE:"কল করে", READ_CALL_LOG:"কল হিস্টরি", READ_PHONE_STATE:"ফোনের তথ্য", BIND_DEVICE_ADMIN:"মোছা কঠিন", QUERY_ALL_PACKAGES:"আপনার অ্যাপ দেখে", RECORD_AUDIO:"মাইক", CAMERA:"ক্যামেরা", ACCESS_FINE_LOCATION:"লোকেশন"},
+  linkActShort:{delete:"খুলবেন না, ডিলিট করুন", dont_open:"খুলবেন না", careful:"সাবধান থাকুন", short:"পুরো লিংক চেয়ে নিন", use_app:"অফিশিয়াল অ্যাপ খুলুন", your_choice:"পিন বা OTP দেবেন না"},
+  fileActShort:{store_only:"শুধু Play Store", never_run:"কখনো চালাবেন না", dont_open:"খুলবেন না", no_macros:"ম্যাক্রো না", delete:"ডিলিট করুন", careful:"সাবধান থাকুন"},
+  fileDosShort:{store:"শুধু Play Store", delete:"ফাইল ডিলিট করুন", access:"“Accessibility” দেবেন না", call:"অফিশিয়াল নম্বরে ফোন"},
+  settingsTitle:"সেটিংস",
+  foot:'<b>FraudShield BD</b> · রিসার্চ প্রোটোটাইপ: Fabliha Afia (সিএসই, বুয়েট) · ভবিষ্যৎ বিজ্ঞানীর খোঁজে ২০২৬<br>বিকাশ, নগদ, রকেট বা কোনো ব্যাংকের সাথে সম্পর্কিত না · সব উদাহরণ বানানো · প্রতারণার শিকার? ৯৯৯ বা প্রোভাইডারকে ফোন করুন (বিকাশ ১৬২৪৭ · নগদ ১৬১৬৭ · রকেট ১৬২১৬)'
+});
+
 /* ================= UI logic ================= */
 const VERSION = "1.2";
 T.en.linkErr = {empty:"Paste a link first.", too_long:"That link is too long to check safely.", control:"That link has hidden control characters. Don't open it.", malformed:"That doesn't look like a web link.", scheme:"This isn't a web link (only http and https are checked)."};
@@ -1478,7 +1601,8 @@ document.addEventListener("focusout", hideTip);
 addEventListener("scroll", () => { if (tipOwner) hideTip(); }, {passive:true});
 
 /* ---------- state ---------- */
-let current = null, result = null, turnIdx = 0, playing = null, senderType = "unknown", showBase = false, activeEx = null, detOpen = {c:true, s:true, e:false};
+let current = null, result = null, turnIdx = 0, playing = null, senderType = "unknown", showBase = false, activeEx = null, detOpen = {c:true, s:false, e:false};
+let showAllEx = false, showAllLinkEx = false, linkDetOpen = false, fileDetOpen = false;
 let view = "chat", linkRes = null, fileRes = null, qrRes = null, qrText = null, seenPats = new Set();
 const session = {links:[], files:[]};
 const reduceMotion = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -1516,12 +1640,11 @@ function applyStatic(){
   $("linkPic").innerHTML = ART.linktool;
   $("linkLbl").innerHTML = `${esc(t.linkLbl)} <span class="qi" tabindex="0" ${tipS(t.linkTip)}>?</span>`; $("linkIn").placeholder = t.linkPh;
   $("linkGo").innerHTML = `${ico("search")} ${t.linkGo}`;
-  $("linkEx").innerHTML = `<span class="small" style="align-self:center;font-weight:700">${esc(t.exLbl)}</span>` + t.linkEx.map((x,i) => `<button class="ex" type="button" data-le="${i}"><i style="background:var(${i === t.linkEx.length - 1 ? "--low" : "--high"})"></i>${esc(x[0])}</button>`).join("");
-  $("linkEx").querySelectorAll("[data-le]").forEach(b => b.addEventListener("click", () => { const u = tx().linkEx[+b.dataset.le][1]; $("linkIn").value = u; runLink(u); }));
+  renderLinkEx();
   $("filePic").innerHTML = ART.filedrop; $("fileCta").textContent = t.fileCta; $("fileLimit").textContent = t.fileLimit;
   $("fileEx").innerHTML = `<span class="small" style="align-self:center;font-weight:700">${esc(t.fileExLbl)}</span>` + t.fileEx.map(x => `<button class="ex" type="button" data-fe="${x[0]}" ${tipS(t.fileSampleTip)}><i style="background:var(${x[0] === "calc" ? "--verify" : "--high"})"></i>${esc(x[1])}</button>`).join("");
   $("fileEx").querySelectorAll("[data-fe]").forEach(b => b.addEventListener("click", () => runSample(b.dataset.fe)));
-  $("fileNote").innerHTML = `${ico("lock")}<span>${esc(t.fileNote)}</span>`;
+  $("fileNote").innerHTML = `<span tabindex="0" ${tipS(t.fileNoteTip)} style="display:flex;gap:8px;align-items:center">${ico("lock")}<span>${esc(t.fileNote)}</span></span>`;
   $("qrPic").innerHTML = ART.qr; $("qrCta").textContent = t.qrCta; $("qrHelp").textContent = t.qrHelp; $("qrLib").textContent = window.jsQR ? t.qrReady : "";
   $("ftTitle").textContent = t.ftTitle; $("ftSub").textContent = t.ftSub;
   $("strip").innerHTML = t.feats.map((f,i) => { const st = t.stateOf[f[1]]; return `<button class="svc" type="button" data-i="${i}" style="--g:linear-gradient(135deg,${f[5]},${f[6]});--c:${f[6]}" ${tip(f[2] + " · " + t.states[st], f[3])}><span class="ring">${ico(f[0])}</span>${esc(f[2])}<small>${f[1] === "NEW" ? `<span class="new">NEW</span>` : f[1] === "NET" ? "" : f[1]} <span class="${st === "offline" ? "new" : "soon"}" style="${st === "offline" ? "background:var(--mint)" : ""}">${esc(t.states[st])}</span></small></button>`; }).join("");
@@ -1532,15 +1655,15 @@ function applyStatic(){
     <div class="reveal"><h4>${esc(t.howT)}</h4><ul>${c.how.map(h => `<li>${esc(h)}</li>`).join("")}</ul><button class="pill white sm" type="button" data-try="${c.id}">${ico("play","width:16px;height:16px")} ${esc(t.tryIt)}</button></div></article>`).join("");
   $("scamCards").querySelectorAll(".icard").forEach(c => c.addEventListener("click", e => { if (e.target.closest("[data-try]")) return; c.classList.toggle("open"); }));
   $("scamCards").querySelectorAll("[data-try]").forEach(b => b.addEventListener("click", e => { e.stopPropagation(); tryFeature(b.dataset.try); }));
-  $("bdTitle").textContent = t.bdTitle; $("bdSub").textContent = t.bdSub; $("phoneSub").textContent = t.phoneSub; $("bdSrc").textContent = t.bdSrc;
+  $("bdTitle").textContent = t.bdTitle; $("bdSub").textContent = t.bdSub; $("phoneSub").textContent = t.phoneSub; $("bdSrc").innerHTML = `<span tabindex="0" ${tipS(t.bdSrcTip)}>${ico("info","width:16px;height:16px;vertical-align:-3px")} ${esc(t.bdSrcTip.split("|")[0])}</span>`;
   $("stats").innerHTML = t.stats.map(s => `<div class="stat" tabindex="0" ${tipS(s[2])}><b${/^\d+\.\d+$/.test(s[0]) ? ` data-to="${s[0]}"` : ""}>${s[0]}</b><span>${esc(s[1])}</span></div>`).join("");
   $("tpTitle").textContent = t.tpTitle; $("tpSub").textContent = t.tpSub;
   $("tipCards").innerHTML = t.tips.map(c => `<div class="tip-card" tabindex="0" ${tip(c[1], c[2])}><div class="pic">${ART[c[0]]}</div><h3>${esc(c[1])}</h3></div>`).join("");
   $("pvPic").innerHTML = ART.privacy; $("pvTitle").textContent = t.pvTitle; $("pvSub").textContent = t.pvSub;
   $("pvList").innerHTML = t.pv.map(p => `<div class="pi" tabindex="0" ${tip(p[1], p[2])}>${ico(p[0])}<span>${esc(p[1])}</span></div>`).join("");
   renderSettings();
-  $("fab").setAttribute("data-tip", t.fabTip); $("fab").setAttribute("aria-label", t.fabTip.split("|")[0]);
   $("foot").innerHTML = t.foot;
+  ["chSub","scSub","ftSub","tpSub","pvSub","bdSub"].forEach(id => { const e = $(id); if (e) e.hidden = !e.textContent.trim(); });
 }
 function renderTabs(){
   const t = tx(), tabs = [["chat","chat"],["link","link",1],["file","package",1],["qr","qr"]];
@@ -1554,18 +1677,28 @@ function applySender(){
 }
 const SCAMS = ["s1","s9","s12","s11","s3","s4","s6","s7"], REALS = ["s2","s10","s8","s5"];
 function renderExamples(){
-  const t = tx();
+  const t = tx(), MAIN = ["s1","s9","s10","s4"];
   const mk = (ids, col, tp) => ids.map(id => { const s = SCEN.find(x => x.id === id); return `<button class="ex" type="button" data-id="${id}" aria-pressed="${activeEx === id}" ${tipS(tp)}><i style="background:var(${col})"></i>${esc(s[LANG])}</button>`; }).join("");
-  $("exs").innerHTML = `<span class="small" style="align-self:center;font-weight:700">${esc(t.exLbl)}</span>` + mk(SCAMS, "--high", t.exScamTip) + mk(REALS, "--low", t.exRealTip);
-  $("exs").querySelectorAll(".ex").forEach(b => b.addEventListener("click", () => loadExample(b.dataset.id)));
+  const scams = showAllEx ? SCAMS : SCAMS.filter(x => MAIN.includes(x)), reals = showAllEx ? REALS : REALS.filter(x => MAIN.includes(x));
+  const hidden = SCAMS.length + REALS.length - scams.length - reals.length;
+  $("exs").innerHTML = mk(scams, "--high", t.exScamTip) + mk(reals, "--low", t.exRealTip) + `<button class="ex more" type="button" id="exMore">${esc(showAllEx ? t.less : t.more(num(hidden)))}</button>`;
+  $("exs").querySelectorAll(".ex[data-id]").forEach(b => b.addEventListener("click", () => loadExample(b.dataset.id)));
+  $("exMore").addEventListener("click", () => { showAllEx = !showAllEx; renderExamples(); });
+}
+function renderLinkEx(){
+  const t = tx(), MAIN = [0, 2, 6], idx = t.linkEx.map((x,i) => i).filter(i => showAllLinkEx || MAIN.includes(i));
+  $("linkEx").innerHTML = idx.map(i => `<button class="ex" type="button" data-le="${i}"><i style="background:var(${i === t.linkEx.length - 1 ? "--low" : "--high"})"></i>${esc(t.linkEx[i][0])}</button>`).join("") + `<button class="ex more" type="button" id="leMore">${esc(showAllLinkEx ? t.less : t.more(num(t.linkEx.length - MAIN.length)))}</button>`;
+  $("linkEx").querySelectorAll("[data-le]").forEach(b => b.addEventListener("click", () => { const u = tx().linkEx[+b.dataset.le][1]; $("linkIn").value = u; runLink(u); }));
+  $("leMore").addEventListener("click", () => { showAllLinkEx = !showAllLinkEx; renderLinkEx(); });
 }
 function renderSettings(){
   const t = tx(), m = onlineMode(), tl = trustList();
-  $("settings").innerHTML = `<h3>${ico("shieldok","color:var(--sky)")} ${esc(t.setTitle)}</h3>
+  const wasOpen = $("settings").querySelector("details") ? $("settings").querySelector("details").open : false;
+  $("settings").innerHTML = `<details class="setdet"${wasOpen ? " open" : ""}><summary><h3>${ico("shieldok","color:var(--sky)")} ${esc(t.setTitle)}</h3><span class="chev">${ico("chev")}</span></summary><div class="setbody">
     <div class="setrow"><span class="lbl">${esc(t.onlineLbl)} <span class="qi" tabindex="0" ${tipS(t.onlineTip)}>?</span></span><div class="seg" id="onlineSeg">${Object.entries(t.onlineOpts).map(([k,v]) => `<button type="button" data-om="${k}" aria-pressed="${k === m}">${esc(v)}</button>`).join("")}</div></div>
     <div class="setrow"><label class="switch"><input type="checkbox" id="testSig"${testSig() ? " checked" : ""}> ${esc(t.testLbl)}</label><span class="qi" tabindex="0" ${tipS(t.testTip)}>?</span></div>
     <div class="setrow" style="align-items:flex-start"><span class="lbl">${esc(t.trustLbl)}</span><div class="trusted">${tl.length ? tl.map(d => `<span>${esc(d)}<button type="button" data-untrust="${esc(d)}" aria-label="remove">×</button></span>`).join("") : `<span class="small" style="background:none;font-family:var(--body)">${esc(t.trustNone)}</span>`}</div></div>
-    <div class="setrow"><button class="pill danger sm" type="button" id="wipe">${ico("trash","width:18px;height:18px")} ${esc(t.wipe)}</button><span class="small" id="wipeMsg" role="status"></span></div>`;
+    <div class="setrow"><button class="pill danger sm" type="button" id="wipe">${ico("trash","width:18px;height:18px")} ${esc(t.wipe)}</button><span class="small" id="wipeMsg" role="status"></span></div></div></details>`;
   $("onlineSeg").querySelectorAll("[data-om]").forEach(b => b.addEventListener("click", () => { sset("fsbd-online", b.dataset.om); renderSettings(); if (view === "link" || view === "qr") renderView(); }));
   $("testSig").addEventListener("change", e => sset("fsbd-testsig", e.target.checked ? "1" : "0"));
   $("settings").querySelectorAll("[data-untrust]").forEach(b => b.addEventListener("click", () => setTrust(b.dataset.untrust, false)));
@@ -1611,7 +1744,7 @@ function tryFeature(what){
   if (what === "sv_qr" || what === "qr"){ setTab("qr"); goCheck(); return; }
   if (what === "sv_report" || what === "report"){ loadExample("s11", {scroll:false, then: () => openReport()}); return; }
   if (what === "sv_tips"){ $("tips").scrollIntoView({behavior:"smooth"}); return; }
-  if (what === "sv_help"){ $("tips").scrollIntoView({behavior:"smooth"}); toast(t.fabToast); return; }
+  if (what === "sv_help"){ assistantOpen("lost"); return; }
   if (what === "sv_net" || what === "net"){ showNet(); $("features").scrollIntoView({behavior:"smooth"}); return; }
   if (what === "privacy"){ $("privacy").scrollIntoView({behavior:"smooth"}); return; }
   if (what === "demo") what = "s1";
@@ -1634,7 +1767,7 @@ function renderView(){
   if (view === "file") return renderFile();
   if (view === "qr"){
     if (qrRes) return renderLink(qrRes, ART.qr, "qr");
-    if (qrText !== null){ $("result").innerHTML = `<div class="empty"><div style="max-width:200px;margin:0 auto">${ART.qr}</div><p style="margin:10px 0 0">${esc(tx().qrText)}</p><p class="small"><code>${esc(maskText(qrText).slice(0, 300))}</code></p></div>`; return; }
+    if (qrText !== null){ $("result").innerHTML = `<div class="empty"><div style="max-width:200px;margin:0 auto">${ART.qr}</div><p style="margin:10px 0 0">${esc(tx().qrText)}</p><p class="small"><code>${esc(maskText(qrText).slice(0, 300))}</code></p></div>`; emitRendered("qr"); return; }
     $("result").innerHTML = emptyCard("qr", ART.qr);
   }
 }
@@ -1699,7 +1832,9 @@ function renderResult(){
   [["dC","c"],["dS","s"],["dE","e"]].forEach(([id,k]) => $(id).addEventListener("toggle", e => { detOpen[k] = e.target.open; }));
   const bt = $("baseT"); if (bt) bt.addEventListener("change", e => { showBase = e.target.checked; renderResult(); });
   const rs = $("turnR"); if (rs) rs.addEventListener("input", e => { stop(); turnIdx = +e.target.value; renderResult(); });
+  emitRendered("chat");
 }
+function emitRendered(kind){ try { document.dispatchEvent(new CustomEvent("fs:rendered", {detail:kind})); } catch(e){} }
 function convo(){
   const t = tx(), all = result.perTurn;
   const rows = all.map(p => {
@@ -1804,36 +1939,40 @@ function renderLink(r, art, kind){
   const t = tx(), el = $("result");
   if (!r){ el.innerHTML = emptyCard(kind === "qr" ? "qr" : "link", art); return; }
   if (r.status !== "complete"){ el.innerHTML = `<div class="empty"><div style="max-width:230px;margin:0 auto">${art}</div><h3 style="margin:10px 0 4px;font:800 21px var(--disp)">${esc(t.linkErr[r.notices[0]] || t.linkErr.malformed)}</h3>${r.raw ? `<p class="small"><code>${esc(String(r.raw).slice(0, 200))}</code></p>` : ""}</div>`; return; }
-  const [title, sub] = t.linkV[r.category], vc = VC[r.verdict];
-  const risks = r.evidence.filter(e => e.state === "risk"), goods = r.evidence.filter(e => e.state === "counterevidence"), unk = r.evidence.filter(e => e.state === "unknown");
+  const [title, sub] = t.linkV[r.category], vc = VC[r.verdict], bad = r.verdict === "high";
+  const risks = r.evidence.filter(e => e.state === "risk"), goods = r.evidence.filter(e => e.state === "counterevidence");
   const chip = (e, cls) => { const f = t.linkFlag[e.kind] || [e.kind, ""]; return `<span class="rchip" style="--c:var(${cls})" tabindex="0" ${tip(f[0], f[1])}><b></b>${esc(f[0])}</span>`; };
   const row = (k, v) => `<dt>${esc(t.linkRows[k])}</dt><dd>${v}</dd>`;
   const facts = [row("shown", `<code>${esc(maskText(r.raw).slice(0, 160))}</code>`)];
-  if (r.host) facts.push(row("real", r.regUnicode && r.regUnicode !== r.reg
-    ? `<b style="font-size:16px;color:var(--high)">${esc(r.reg)}</b><br><span class="small">${esc(t.showsAs(r.regUnicode))}</span>`
-    : `<b style="font-size:16px">${esc(r.reg)}</b>${r.host !== r.reg ? `<br><span class="small">${esc(r.hostUnicode || r.host)}</span>` : ""}`));
-  if (r.userinfo) facts.push(row("hidden", `<code style="color:var(--high)">${esc(r.userinfo)}</code>`));
-  if (r.lookalikeOf) facts.push(row("lookalike", `<b style="color:var(--high)">${esc(r.lookalikeOf)}</b>`));
+  if (r.host && r.hostUnicode !== r.host) facts.push(row("real", `<code>${esc(r.host)}</code><br><span class="small">${esc(t.showsAs(r.hostUnicode))}</span>`));
   if (r.host) facts.push(row("conn", esc(t.conn[r.scheme === "https" ? "https" : r.scheme === "http" ? "http" : "none"])));
   if (r.port) facts.push(row("port", esc(r.port)));
   if (r.path && r.path !== "/") facts.push(row("path", `<code>${esc(maskText(r.path).slice(0, 120))}</code>`));
-  const trusted = trustList().includes(r.reg);
-  const canTrust = r.reg && !r.ip && r.category !== "known_harmful";
+  const trusted = trustList().includes(r.reg), canTrust = r.reg && !r.ip && r.category !== "known_harmful";
+  const domTip = r.regUnicode && r.regUnicode !== r.reg ? tip(t.realSite, t.showsAs(r.regUnicode)) : tip(t.realSite, t.linkRows.real + ": " + r.reg);
+  const [actShort, actLong] = [t.linkActShort[r.action], t.linkAct[r.action]];
+  const pic = r.host ? `<div class="realsite">
+      <div class="addr ${bad ? "bad" : r.verdict === "low" ? "ok" : "mid"}" tabindex="0" ${domTip}><span class="ai">${ico(bad ? "alert" : r.verdict === "low" ? "lock" : "help")}</span><span class="lab">${esc(t.realSite)}</span><span class="dom">${esc(r.reg)}</span></div>
+      ${r.lookalikeOf ? `<div class="mask" tabindex="0" ${tip(t.linkFlag.lookalike[0], t.linkFlag.lookalike[1])}>${ico("eyeoff")}<span>${esc(t.pretends)}</span><b>${esc(r.lookalikeOf)}</b></div>` : r.brand && !r.official ? `<div class="mask" tabindex="0" ${tip(t.linkFlag.brand_in_host[0], t.linkFlag.brand_in_host[1])}>${ico("eyeoff")}<span>${esc(t.usesName)}</span><b>${esc(REGISTRY.orgs[r.brand].en)}</b></div>` : ""}
+      ${r.userinfo ? `<div class="mask" tabindex="0" ${tip(t.linkFlag.userinfo[0], t.linkFlag.userinfo[1])}>${ico("x")}<span>${esc(t.hiddenPart)}</span><s>${esc(r.userinfo)}</s></div>` : ""}
+    </div>` : "";
   el.innerHTML = `
     <div class="banner" style="background:${vc.g}"><div>${verdictArt(r.verdict)}</div><div><h3>${esc(title)}</h3><p>${esc(sub)}${kind === "qr" ? `<br><b>${esc(t.fromQR)}</b>` : ""}</p></div></div>
-    <div class="chips">${risks.map(e => chip(e, e.confidenceBand === "low" ? "--verify" : "--high")).join("")}${goods.map(e => chip(e, "--low")).join("")}${unk.map(e => chip(e, "--muted")).join("")}</div>
-    <div class="dos"><div class="do"><span class="di">${ico(r.verdict === "low" ? "app" : "stop")}</span><b style="font-weight:600">${esc(t.linkAct[r.action])}</b></div></div>
-    <div class="body" style="padding-top:4px">
+    ${pic}
+    <div class="chips">${risks.map(e => chip(e, e.confidenceBand === "low" ? "--verify" : "--high")).join("")}${goods.map(e => chip(e, "--low")).join("")}</div>
+    <div class="dos"><div class="do" tabindex="0" ${tip(actShort, actLong)}><span class="di">${ico(r.verdict === "low" ? "app" : "stop")}</span><b style="font-weight:700">${esc(actShort)}</b></div></div>
+    <div class="bar"><button class="pill sky sm" type="button" id="lCopy" ${tip(t.copySafe, r.defanged)}>${ico("copy","width:18px;height:18px")} ${esc(t.copySafe)}</button>${canTrust ? `<button class="pill ghost sm" type="button" id="lTrust">${ico(trusted ? "x" : "star","width:18px;height:18px")} ${esc(trusted ? t.untrustBtn : t.trustBtn)}</button>` : ""}</div>
+    <details class="det" id="lDet"${linkDetOpen || r.dns === "consent" || r.dns === "loading" ? " open" : ""}><summary>${esc(t.details)}<span class="chev">${ico("chev")}</span></summary><div class="body">
       <dl class="facts">${facts.join("")}</dl>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="pill sky sm" type="button" id="lCopy">${ico("copy","width:18px;height:18px")} ${esc(t.copySafe)}</button>${canTrust ? `<button class="pill ghost sm" type="button" id="lTrust">${ico(trusted ? "x" : "star","width:18px;height:18px")} ${esc(trusted ? t.untrustBtn : t.trustBtn)}</button>` : ""}</div>
       <code id="lSafe" style="font:12.5px var(--mono);word-break:break-all;background:var(--skybg);padding:8px 10px;border-radius:10px">${esc(r.defanged)}</code>
-      <div class="lbl" style="margin-top:4px">${ico("globe","width:18px;height:18px;color:var(--sky)")} ${esc(t.onlineTitle)}</div>
-      <div class="online">${dnsCard(r)}<div class="ocard"><h4>${ico("lock","width:18px;height:18px")} ${esc(t.tlsTitle)} <span class="soon">${esc(t.notChecked)}</span></h4><p>${esc(t.tlsBody)}</p>${r.scheme === "http" ? `<p style="color:var(--high)">${esc(t.tlsHttp)}</p>` : r.scheme === "https" ? `<p>${esc(t.tlsHttps)}</p>` : ""}</div></div>
-      <p class="small" style="margin:0">${ico("shieldok","width:14px;height:14px;vertical-align:-2px;color:var(--low)")} ${esc(r.dns && r.dns.status ? t.dnsCaveat : t.localNote)} · ${esc(t.provNote(REGISTRY.version, DEMO_BLOCKLIST.version))}</p>
-    </div>`;
+      <div class="online">${dnsCard(r)}<div class="ocard"><h4 tabindex="0" ${tip(t.tlsTitle, t.tlsBody)}>${ico("lock","width:18px;height:18px")} ${esc(t.tlsTitle)} <span class="soon">${esc(t.notChecked)}</span></h4>${r.scheme === "http" ? `<p style="color:var(--high)">${esc(t.tlsHttp)}</p>` : ""}</div></div>
+      <p class="small" style="margin:0" tabindex="0" ${tip(t.localNote, t.provNote(REGISTRY.version, DEMO_BLOCKLIST.version))}>${ico("shieldok","width:14px;height:14px;vertical-align:-2px;color:var(--low)")} ${esc(r.dns && r.dns.status ? t.dnsCaveat : t.localNote)}</p>
+    </div></details>`;
   $("lCopy").addEventListener("click", () => copyText(r.defanged, t.copied, $("lSafe")));
   const tb = $("lTrust"); if (tb) tb.addEventListener("click", () => setTrust(r.reg, !trusted));
+  $("lDet").addEventListener("toggle", e => { linkDetOpen = e.target.open; });
   wireDns(r);
+  emitRendered(kind === "qr" ? "qr" : "link");
 }
 function dnsCard(r){
   const t = tx(), m = onlineMode(), d = r.dns;
@@ -1846,8 +1985,8 @@ function dnsCard(r){
     const col = state === "nx" ? "--verify" : state === "offline" ? "--muted" : "--deep";
     const rr = (k, v) => v ? `<dt>${esc(t.dnsRows[k])}</dt><dd>${v}</dd>` : "";
     bodyHtml = `<p style="color:var(${col});font-weight:700">${esc(t.dnsRes[state])}</p>${d.status === "complete" ? `<dl class="facts">${rr("addr", [...d.A, ...d.AAAA].slice(0, 4).map(x => `<code>${esc(x)}</code>`).join("<br>"))}${rr("cname", d.CNAME.map(x => `<code>${esc(x)}</code>`).join(" → "))}${rr("ns", d.NS.slice(0, 3).map(x => `<code>${esc(x)}</code>`).join("<br>"))}${rr("prov", esc(d.provider))}${rr("when", esc(new Date(d.checkedAt).toLocaleString(LANG === "bn" ? "bn-BD" : "en-GB")))}</dl>` : ""}<p>${esc(t.dnsCaveat)}</p>`;
-  } else if (m === "off") bodyHtml = `<p>${esc(t.dnsBody)}</p><p style="color:var(--verify)">${esc(t.dnsOff)}</p>`;
-  else bodyHtml = `<p>${esc(t.dnsBody)}</p><button class="pill ghost sm" type="button" id="dGo" style="align-self:flex-start">${ico("globe","width:18px;height:18px")} ${esc(t.dnsBtn)}</button>`;
+  } else if (m === "off") bodyHtml = `<p style="color:var(--verify)">${esc(t.dnsOff)}</p>`;
+  else bodyHtml = `<button class="pill ghost sm" type="button" id="dGo" style="align-self:flex-start" ${tip(t.dnsTitle, t.dnsBody)}>${ico("globe","width:18px;height:18px")} ${esc(t.dnsBtn)}</button>`;
   const badge = d && d.status ? `<span class="new" style="background:var(--sky)">DNS</span>` : `<span class="soon">${esc(t.notChecked)}</span>`;
   return `<div class="ocard"><h4>${ico("server","width:18px;height:18px")} ${esc(t.dnsTitle)} ${badge}</h4>${bodyHtml}</div>`;
 }
@@ -1879,41 +2018,46 @@ async function runFile(bytes, name, sample){
   }
   if (view === "file") renderFile();
 }
+const PERM_ICON = {sms:"mail", access:"eye", overlay:"layers", notif:"bell", install:"download", contacts:"users", calls:"phone", admin:"lock", apps:"grid", mic:"mic", camera:"camera", location:"mappin"};
 function renderFile(){
   const t = tx(), el = $("result"), r = fileRes;
   if (!r){ el.innerHTML = emptyCard("file", ART.apk); return; }
   if (r.status !== "complete"){ el.innerHTML = `<div class="empty"><div style="max-width:200px;margin:0 auto">${ART.filedrop}</div><h3 style="margin:10px 0 4px;font:800 21px var(--disp)">${esc(t.fileErr[r.notices[0]] || t.fileErr.read)}</h3></div>`; return; }
-  const vc = VC[r.verdict], [title, sub] = t.fileV[r.verdict];
-  const flags = r.evidence.filter(e => t.fileFlag[e.kind]).map(e => `<span class="rchip" style="--c:var(--high)" tabindex="0" ${tip(t.fileFlag[e.kind][0], t.fileFlag[e.kind][1] + (e.kind === "apk_impersonation" ? " (" + e.finding + ")" : ""))}><b></b>${esc(t.fileFlag[e.kind][0])}</span>`).join("");
-  const row = (k, v) => `<dt>${esc(t.fileRows[k])}</dt><dd>${v}</dd>`;
-  const facts = [row("name", esc(r.name)), row("type", `<b>${esc(t.kinds[r.kind] || r.kind)}</b>${r.ext ? ` <span class="small">(.${esc(r.ext)})</span>` : ""}`), row("size", esc(t.bands[r.sizeBand] || r.sizeBand)),
+  const vc = VC[r.verdict], [title, sub] = t.fileV[r.verdict], a = r.apk && r.apk.status === "complete" ? r.apk : null;
+  const has = k => r.evidence.some(e => e.kind === k);
+  const stamps = [];
+  if (a && a.claimed && !a.officialPkg) stamps.push(["hi", t.notOfficial, t.fileFlag.apk_impersonation]);
+  if (has("disguised") || has("double_ext")) stamps.push(["hi", t.disguisedStamp, t.fileFlag[has("disguised") ? "disguised" : "double_ext"]]);
+  if (r.known) stamps.push(["hi", t.knownStamp, [t.fileFlag.known_hash[0], t.hashKnown(r.known)]]);
+  const name = a && a.label ? a.label : r.name;
+  const card = `<div class="appcard">
+      <div class="aicon ${r.kind === "apk" ? "apk" : ""}">${ico(r.kind === "apk" ? "package" : r.kind === "image" ? "camera" : "file")}</div>
+      <div class="ainfo"><b>${esc(name)}</b><span tabindex="0" ${tip(t.fileRows.type, (t.kinds[r.kind] || r.kind) + (r.ext ? " (." + r.ext + ")" : ""))}>${esc(t.kinds[r.kind] || r.kind)}</span>${a && a.pkg ? `<code>${esc(a.pkg)}</code>` : ""}</div>
+      <div class="stamps">${stamps.map(s => `<span class="stamp" tabindex="0" ${tip(s[2][0], s[2][1])}>${esc(s[1])}</span>`).join("")}</div>
+    </div>`;
+  const perms = a ? a.sensitive.map(p => { const g = SENSITIVE_PERMS[p], hi = HIGH_PERM_GROUPS.includes(g); return `<div class="ptile ${hi ? "hi" : "md"}" tabindex="0" ${tip(t.permShort[p] || p, t.perm[p] || p)}><span class="pi2">${ico(PERM_ICON[g] || "alert")}</span><span>${esc(t.permShort[p] || p)}</span></div>`; }).join("") : "";
+  const permBlock = a ? `<div class="lbl" style="padding:14px 20px 0;margin:0">${ico("package","width:18px;height:18px;color:var(--verify)")} ${esc(t.wants)}</div><div class="pgrid">${perms || `<span class="small">${esc(t.permNone)}</span>`}</div>` : "";
+  const dos = [[r.kind === "apk" ? "store" : "stop", t.fileActShort[r.action], t.fileAct[r.action]]];
+  if (a && a.sensitive.includes("BIND_ACCESSIBILITY_SERVICE")) dos.push(["eyeoff", t.fileDosShort.access, t.fileDos.access]);
+  else if (r.verdict === "high") dos.push(["trash", t.fileDosShort.delete, t.fileDos.delete]);
+  const row = (k, v) => `<dt>${esc(t.fileRows[k])}</dt><dd>${v}</dd>`, ar = (k, v) => `<dt>${esc(t.apkRows[k])}</dt><dd>${v}</dd>`;
+  const facts = [row("name", esc(r.name)), row("size", esc(t.bands[r.sizeBand] || r.sizeBand)),
     row("hash", r.sha256 ? `<span class="hash"><code>${esc(r.sha256.slice(0, 16))}…</code><button class="pill ghost sm" type="button" id="fHash" style="padding:5px 10px" aria-label="copy">${ico("copy","width:14px;height:14px")}</button></span>` : "–"),
     row("list", r.known ? `<b style="color:var(--high)">${esc(t.hashKnown(r.known))}</b>` : esc(t.hashUnknown))];
-  let apkHtml = "";
-  const a = r.apk;
-  if (a && a.status === "complete"){
-    const perms = a.sensitive.map(p => `<span class="perm ${HIGH_PERM_GROUPS.includes(SENSITIVE_PERMS[p]) ? "hi" : "md"}" tabindex="0" ${tip(p, t.perm[p] || "")}>${esc(t.perm[p] || p)}</span>`).join("");
-    const others = a.perms.filter(p => !SENSITIVE_PERMS[p]);
-    const ar = (k, v) => `<dt>${esc(t.apkRows[k])}</dt><dd>${v}</dd>`;
-    apkHtml = `<div class="lbl" style="margin-top:4px">${ico("package","width:18px;height:18px;color:var(--verify)")} ${esc(t.apkTitle)}</div>
-      <dl class="facts">${ar("label", esc(a.label || "–"))}${ar("pkg", `<code>${esc(a.pkg || "–")}</code>`)}${ar("version", esc(a.version || "–"))}${ar("claims", a.claimed ? `<b>${esc(OFFICIAL_APPS.apps[a.claimed].en)}</b>` : "–")}${ar("official", a.officialPkg ? `<span style="color:var(--low)">${esc(t.officialYes)}</span>` : a.claimed ? `<b style="color:var(--high)">${esc(t.officialNo)}</b>` : "–")}${ar("signed", `<span tabindex="0" ${tipS(t.signedTip)}>${esc(a.signed ? t.yes : t.no)} <span class="qi">?</span></span>`)}${ar("exported", `<span tabindex="0" ${tipS(t.exportedTip)}>${num(a.exported)} <span class="qi">?</span></span>`)}</dl>
-      <div class="lbl" style="margin-top:4px">${esc(t.permTitle)}</div>
-      <div class="perms">${perms || `<span class="small">${esc(t.permNone)}</span>`}${others.length ? `<span class="perm" tabindex="0" ${tip(t.permMore(others.length), others.slice(0, 20).join(", "))}>${esc(t.permMore(num(others.length)))}</span>` : ""}</div>`;
-  } else if (a) apkHtml = `<p class="small">${esc(t.fileErr.read)} (${esc(a.notices.join(", "))})</p>`;
-  const dos = [["stop", t.fileAct[r.action]]];
-  if (r.kind === "apk"){ dos.push(["store", t.fileDos.store]); if (a && a.sensitive && a.sensitive.includes("BIND_ACCESSIBILITY_SERVICE")) dos.push(["eyeoff", t.fileDos.access]); if (a && a.claimed) dos.push(["phone", t.fileDos.call]); }
-  if (r.verdict === "high") dos.push(["trash", t.fileDos.delete]);
+  if (a) facts.push(ar("version", esc(a.version || "–")), ar("official", a.officialPkg ? esc(t.officialYes) : a.claimed ? `<b style="color:var(--high)">${esc(t.officialNo)}</b>` : "–"), ar("signed", `<span tabindex="0" ${tipS(t.signedTip)}>${esc(a.signed ? t.yes : t.no)} <span class="qi">?</span></span>`), ar("exported", `<span tabindex="0" ${tipS(t.exportedTip)}>${num(a.exported)} <span class="qi">?</span></span>`));
   el.innerHTML = `
     <div class="banner" style="background:${vc.g}"><div>${verdictArt(r.verdict)}</div><div><h3>${esc(title)}</h3><p>${esc(sub)}</p></div></div>
-    ${flags ? `<div class="chips">${flags}</div>` : ""}
-    <div class="dos">${dos.slice(0, 4).map(([ic, txt]) => `<div class="do"><span class="di">${ico(ic)}</span><b style="font-weight:600">${esc(txt)}</b></div>`).join("")}</div>
-    <div class="body" style="padding-top:4px">
+    ${card}
+    ${permBlock}
+    <div class="dos">${dos.map(([ic, s1, s2]) => `<div class="do" tabindex="0" ${tip(s1, s2)}><span class="di">${ico(ic)}</span><b style="font-weight:700">${esc(s1)}</b></div>`).join("")}</div>
+    <details class="det" id="fDet"${fileDetOpen ? " open" : ""}><summary>${esc(t.fileDetails)}<span class="chev">${ico("chev")}</span></summary><div class="body">
       <dl class="facts">${facts.join("")}</dl>
-      ${apkHtml}
-      <div class="ocard"><h4>${ico("server","width:18px;height:18px")} ${esc(t.sandboxTitle)} <span class="soon">OFF</span></h4><p>${esc(t.sandboxBody)}</p></div>
-      <p class="small" style="margin:0">${ico("lock","width:14px;height:14px;vertical-align:-2px;color:var(--low)")} ${esc(t.fileNote)}</p>
-    </div>`;
+      <div class="ocard"><h4 tabindex="0" ${tip(t.sandboxTitle, t.sandboxBody)}>${ico("server","width:18px;height:18px")} ${esc(t.sandboxTitle)} <span class="soon">OFF</span></h4></div>
+    </div></details>
+    <p class="small" style="margin:0;padding:0 20px 16px" tabindex="0" ${tipS(t.fileNoteTip)}>${ico("lock","width:14px;height:14px;vertical-align:-2px;color:var(--low)")} ${esc(t.fileNote)}</p>`;
   const hb = $("fHash"); if (hb) hb.addEventListener("click", () => copyText(r.sha256, t.copied.split(" (")[0]));
+  $("fDet").addEventListener("toggle", e => { fileDetOpen = e.target.open; });
+  emitRendered("file");
 }
 function handlePicked(f){
   if (!f) return;
@@ -2055,8 +2199,7 @@ heroEl.addEventListener("focusin", () => clearInterval(slideTimer));
 (function swipe(){ let x0 = null; heroEl.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, {passive:true}); heroEl.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50){ goSlide(slideIdx + (dx < 0 ? 1 : -1)); restartSlides(); } x0 = null; }, {passive:true}); })();
 $("l-en").addEventListener("click", () => setLang("en"));
 $("l-bn").addEventListener("click", () => setLang("bn"));
-$("fab").addEventListener("click", () => { $("tips").scrollIntoView({behavior:"smooth"}); toast(tx().fabToast); });
-function setLang(l){ LANG = l; sset("fsbd-lang", l); applyStatic(); renderView(); heroDemo(); countUp(); if (!$("report").hidden) openReport(); }
+function setLang(l){ LANG = l; sset("fsbd-lang", l); applyStatic(); renderView(); heroDemo(); countUp(); if (!$("report").hidden) openReport(); try { document.dispatchEvent(new CustomEvent("fs:lang")); } catch(e){} }
 window.addEventListener("load", () => { $("qrLib").textContent = window.jsQR ? tx().qrReady : tx().qrNoLib; });
 const hs = (location.hash || "").replace("#","");
 const hm = hs.match(/^(en|bn)_(s\d+|link|file|filecalc|net|qr)(r)?$/);
@@ -2072,6 +2215,243 @@ if (hm && hm[2] === "filecalc") runSample("calc");
 if (hm && hm[2] === "net") showNet();
 if (hm && hm[2] === "qr") setTab("qr");
 heroDemo(); countUp(); restartSlides();
+
+/* ================= Shieldy: rule-based assistant that runs on the device =================
+   Asks what happened, walks the user through the app with a spotlight, and checks pasted links or chats inline.
+   It is not an online AI: nothing typed here leaves the page. */
+const AS = {
+ en:{
+  name:"Shieldy", role:"Your guide · works on this device",
+  about:"How I work|I'm a simple rule-based helper inside this page. I'm not a person or an online AI, and nothing you type here is sent anywhere.",
+  helloTitle:"Hi, I'm Shieldy!", hello:"Need help? I'll show you step by step.", open:"Open assistant", close:"Close",
+  greet:"Hi! I'm Shieldy. Tell me what happened, and I'll guide you step by step.",
+  menu:{msg:"Got a strange message", link:"Got a link", file:"Got an app or file", call:"Got a strange call", qr:"Got a QR code", lost:"I already gave my code or money", tour:"Show me around", privacy:"Is my data safe?"},
+  ph:"Type here, or paste a message or link…", send:"Send",
+  showMe:"Show me where", pasteHere:"Paste it here instead", tryEx:"Try an example", seeFull:"See full result", seeDetails:"See details", makeReport:"Make a report", back:"Main menu", openSettings:"Open settings",
+  msg:"OK, let's check it together. Copy the messages and paste them in the Chat tool. I'll show you where.",
+  call:"Write what the caller said, one line each, then check it like a chat. Remember: bKash, Nagad and banks never ask for your PIN or OTP.",
+  link:"Paste the link right here and I'll check it. Or I can show you the Link tool.",
+  file:"Pick the file in the App / file tool. It never leaves your phone. I'll show you where.",
+  qr:"Save the QR as a picture, then choose it in the QR tool. I'll show you where.",
+  lostTitle:"Act fast. Do these now:",
+  lost:['Call your provider to block it: <a href="tel:16247">bKash 16247</a> · <a href="tel:16167">Nagad 16167</a> · <a href="tel:16216">Rocket 16216</a>, or the number on your card.', "Change your PIN from the official app.", "Stop replying. Don't send more money or codes.", "Keep the messages and make a report.", 'Threatened? Call <a href="tel:999">999</a>. Bangladesh Bank: <a href="tel:16236">16236</a>.'],
+  privacy:"Yes. Chats, links and files are checked right here on your device. Nothing is uploaded. The only online option is a DNS check for a link, and I always ask first.",
+  pasteChat:"Paste the messages here, each on its own line.", pasteLink:"Paste the link here.",
+  otp:"Never share your PIN or OTP with anyone. No real company asks for it, not even on the phone.",
+  thanks:"You're welcome! Stay safe.",
+  fallback:"Sorry, I didn't get that. Pick one, or paste the message or link here:",
+  reason:"Why", doNow:"Do this", done:"Done! What next?",
+  step:(i,n)=>`Step ${i} of ${n}`, next:"Next", prev:"Back", skip:"Skip", finish:"Finish",
+  g:{chatTab:["Tap “Chat”","This is where you check messages."], chatBox:["Paste here","Put each message on its own line. Start your own replies with “me:”."], sender:["Who sent it?","Optional. It helps me check if the sender matches who they claim to be."], go:["Tap Check","I'll read the whole chat in a second. I'm waiting for you."], result:["Your answer","Red means stop. Orange means check first. Green means no danger found yet."], dos:["What to do","These tiles tell you exactly what to do next."], replay:["Watch it again","Replay shows the moment the chat turned dangerous."], linkTab:["Tap “Link”","This is the link checker."], linkIn:["Paste the link","From SMS, WhatsApp, email or anywhere. I only read it."], linkGo:["Tap Check","I'm waiting for you."], realsite:["The real website","This is where the link really goes. The red box shows what it pretends to be."], fileTab:["Tap “App / file”","This checks APKs and other files."], drop:["Choose the file","Tap here and pick the file."], samples:["Or try a sample","These demo files are safe. They have no code."], appcard:["What the app really is","A red stamp means it's fake or disguised."], perms:["What it wants","Red tiles are dangerous powers, like reading your OTP."], qrTab:["Tap “QR”","This reads the link inside a QR picture."], qrDrop:["Choose the QR picture","I'll read the link and check it. I never open it."], services:["Start here","Pick what you want to check."], tabs:["The checker","Four tools: chat, link, app or file, and QR."], layers:["10 safety layers","Hover any icon to learn what it does."], tips:["Stay safe","Four habits that stop most scams."], privacy:["Your privacy","Settings and Delete all are here."], lang:["বাংলা / English","Switch language any time."], me:["That's me!","Tap me whenever you need help."]}
+ },
+ bn:{
+  name:"শিল্ডি", role:"আপনার গাইড · এই ফোনেই চলে",
+  about:"আমি কীভাবে কাজ করি|আমি এই পেজের ভেতরের সহজ রুল-ভিত্তিক সাহায্যকারী। মানুষ না, অনলাইন AI-ও না। এখানে যা লিখবেন, কোথাও যায় না।",
+  helloTitle:"হাই, আমি শিল্ডি!", hello:"সাহায্য লাগবে? ধাপে ধাপে দেখিয়ে দেব।", open:"সাহায্যকারী খুলুন", close:"বন্ধ করুন",
+  greet:"হাই! আমি শিল্ডি। কী হয়েছে বলুন, আমি ধাপে ধাপে দেখিয়ে দেব।",
+  menu:{msg:"সন্দেহজনক মেসেজ পেয়েছি", link:"লিংক পেয়েছি", file:"অ্যাপ বা ফাইল পেয়েছি", call:"সন্দেহজনক ফোন পেয়েছি", qr:"QR কোড পেয়েছি", lost:"কোড বা টাকা দিয়ে ফেলেছি", tour:"পুরো অ্যাপটা দেখাও", privacy:"আমার তথ্য কি সেফ?"},
+  ph:"এখানে লিখুন, বা মেসেজ বা লিংক পেস্ট করুন…", send:"পাঠান",
+  showMe:"কোথায়, দেখাও", pasteHere:"এখানেই পেস্ট করি", tryEx:"উদাহরণ দেখাও", seeFull:"পুরো ফলাফল দেখুন", seeDetails:"বিস্তারিত দেখুন", makeReport:"রিপোর্ট বানাও", back:"মেনু", openSettings:"সেটিংস খুলুন",
+  msg:"ঠিক আছে, চলুন একসাথে চেক করি। মেসেজগুলো কপি করে চ্যাট টুলে পেস্ট করুন। কোথায়, দেখিয়ে দিচ্ছি।",
+  call:"কলার যা যা বলেছে, এক এক লাইনে লিখে চ্যাটের মতো চেক করুন। মনে রাখবেন: বিকাশ, নগদ বা ব্যাংক কখনো পিন বা OTP চায় না।",
+  link:"লিংকটা এখানেই পেস্ট করুন, আমি চেক করে দিচ্ছি। অথবা লিংক টুলটা দেখিয়ে দিই।",
+  file:"অ্যাপ / ফাইল টুলে ফাইলটা বাছুন। ফাইল আপনার ফোনের বাইরে যাবে না। কোথায়, দেখিয়ে দিচ্ছি।",
+  qr:"QR-টা ছবি হিসেবে সেভ করুন, তারপর QR টুলে বাছুন। কোথায়, দেখিয়ে দিচ্ছি।",
+  lostTitle:"দেরি করবেন না। এখনই করুন:",
+  lost:['প্রোভাইডারকে ফোন করে ব্লক করান: <a href="tel:16247">বিকাশ ১৬২৪৭</a> · <a href="tel:16167">নগদ ১৬১৬৭</a> · <a href="tel:16216">রকেট ১৬২১৬</a>, বা কার্ডের নম্বর।', "অফিশিয়াল অ্যাপ থেকে পিন বদলান।", "আর রিপ্লাই দেবেন না। আর টাকা বা কোড দেবেন না।", "মেসেজগুলো রেখে দিন, একটা রিপোর্ট বানান।", 'হুমকি দিলে <a href="tel:999">৯৯৯</a>-এ ফোন করুন। বাংলাদেশ ব্যাংক: <a href="tel:16236">১৬২৩৬</a>।'],
+  privacy:"হ্যাঁ। চ্যাট, লিংক আর ফাইল এই ফোনেই চেক হয়। কিছুই আপলোড হয় না। অনলাইনে যায় শুধু লিংকের DNS চেক, সেটাও আমি আগে জিজ্ঞেস করি।",
+  pasteChat:"মেসেজগুলো এখানে পেস্ট করুন, প্রতিটা আলাদা লাইনে।", pasteLink:"লিংকটা এখানে পেস্ট করুন।",
+  otp:"পিন বা OTP কখনো কাউকে দেবেন না। কোনো আসল কোম্পানি এটা চায় না, ফোনেও না।",
+  thanks:"আপনাকেও ধন্যবাদ! সাবধানে থাকবেন।",
+  fallback:"দুঃখিত, বুঝতে পারিনি। একটা বাছুন, অথবা মেসেজ বা লিংক এখানে পেস্ট করুন:",
+  reason:"কারণ", doNow:"এখন করুন", done:"হয়ে গেছে! এরপর কী করবেন?",
+  step:(i,n)=>`ধাপ ${i}/${n}`, next:"পরের ধাপ", prev:"আগের", skip:"বাদ দিন", finish:"শেষ",
+  g:{chatTab:["“চ্যাট”-এ চাপ দিন","এখানে মেসেজ চেক হয়।"], chatBox:["এখানে পেস্ট করুন","প্রতিটা মেসেজ আলাদা লাইনে। নিজের উত্তরের শুরুতে “আমি:” লিখুন।"], sender:["কে পাঠিয়েছে?","না দিলেও চলে। দিলে মিলিয়ে দেখি সে যা বলছে তা ঠিক কি না।"], go:["চেক-এ চাপ দিন","এক সেকেন্ডে পুরো চ্যাট পড়ে ফেলব। আমি অপেক্ষা করছি।"], result:["আপনার উত্তর","লাল মানে থামুন। কমলা মানে আগে যাচাই। সবুজ মানে এখনো বিপদ পাইনি।"], dos:["কী করবেন","এই টাইলগুলো বলে দেয় এখন ঠিক কী করতে হবে।"], replay:["আবার দেখুন","কোন মেসেজে চ্যাটটা বিপজ্জনক হলো, রিপ্লেতে দেখা যায়।"], linkTab:["“লিংক”-এ চাপ দিন","এটা লিংক চেকার।"], linkIn:["লিংক পেস্ট করুন","SMS, WhatsApp, ইমেইল যেখান থেকেই হোক। আমি শুধু পড়ি।"], linkGo:["চেক-এ চাপ দিন","আমি অপেক্ষা করছি।"], realsite:["আসল ওয়েবসাইট","লিংকটা আসলে এখানেই যায়। লাল বক্স দেখায় এটা কী সাজছে।"], fileTab:["“অ্যাপ / ফাইল”-এ চাপ দিন","এখানে APK আর অন্য ফাইল চেক হয়।"], drop:["ফাইল বাছুন","এখানে চাপ দিয়ে ফাইলটা বাছুন।"], samples:["অথবা নমুনা দেখুন","এই ডেমো ফাইলগুলো নিরাপদ, কোনো কোড নেই।"], appcard:["অ্যাপটা আসলে কী","লাল সিল মানে নকল বা ছদ্মবেশী।"], perms:["কী চায়","লাল টাইল মানে বিপজ্জনক ক্ষমতা, যেমন আপনার OTP পড়া।"], qrTab:["“QR”-এ চাপ দিন","QR ছবির ভেতরের লিংক পড়ে।"], qrDrop:["QR ছবি বাছুন","লিংক পড়ে চেক করব। কখনো খুলব না।"], services:["এখান থেকে শুরু","কী চেক করতে চান, বাছুন।"], tabs:["চেকার","চারটা টুল: চ্যাট, লিংক, অ্যাপ বা ফাইল, আর QR।"], layers:["১০ স্তরের সুরক্ষা","যেকোনো আইকনের ওপর মাউস রাখলে কাজটা দেখবেন।"], tips:["সাবধান থাকুন","৪টা অভ্যাস, বেশিরভাগ স্ক্যাম আটকায়।"], privacy:["আপনার প্রাইভেসি","সেটিংস আর সব ডিলিট এখানে।"], lang:["বাংলা / English","যখন খুশি ভাষা বদলান।"], me:["এই যে আমি!","সাহায্য লাগলেই আমাকে চাপ দিন।"]}
+ }
+};
+const at = () => AS[LANG];
+
+/* ---------- guided walkthroughs (spotlight steps) ---------- */
+const GUIDES = {
+  chat:[{sel:'#tabs [data-tab="chat"]', g:"chatTab", before:() => setTab("chat")}, {sel:"#chat", g:"chatBox"}, {sel:"#senderSeg", g:"sender"}, {sel:"#goBtn", g:"go", wait:"chat"}, {sel:"#result .banner", g:"result"}, {sel:"#result .dos", g:"dos"}],
+  chatEx:[{sel:"#result .banner", g:"result", before:() => loadExample("s1", {scroll:false})}, {sel:"#result .dos", g:"dos"}, {sel:"#aReplay", g:"replay"}],
+  link:[{sel:'#tabs [data-tab="link"]', g:"linkTab", before:() => setTab("link")}, {sel:"#linkIn", g:"linkIn"}, {sel:"#linkGo", g:"linkGo", wait:"link"}, {sel:"#result .realsite", g:"realsite"}, {sel:"#result .dos", g:"dos"}],
+  linkEx:[{sel:"#result .realsite", g:"realsite", before:() => { const u = tx().linkEx[2][1]; $("linkIn").value = u; runLink(u); }}, {sel:"#result .dos", g:"dos"}],
+  file:[{sel:'#tabs [data-tab="file"]', g:"fileTab", before:() => setTab("file")}, {sel:"#drop", g:"drop", wait:"file"}, {sel:"#fileEx", g:"samples", wait:"file"}, {sel:"#result .appcard", g:"appcard"}, {sel:"#result .pgrid", g:"perms"}],
+  fileEx:[{sel:"#result .appcard", g:"appcard", before:() => { setTab("file"); runSample("fake"); }}, {sel:"#result .pgrid", g:"perms"}, {sel:"#result .dos", g:"dos"}],
+  qr:[{sel:'#tabs [data-tab="qr"]', g:"qrTab", before:() => setTab("qr")}, {sel:"#paneQR .drop", g:"qrDrop", wait:"qr"}, {sel:"#result .realsite", g:"realsite"}],
+  tour:[{sel:"#svGrid", g:"services"}, {sel:"#tabs", g:"tabs"}, {sel:"#strip", g:"layers"}, {sel:"#tipCards", g:"tips"}, {sel:"#settings", g:"privacy"}, {sel:".lang", g:"lang"}, {sel:".as-launch", g:"me"}]
+};
+let G = null, spotEl = null, stepEl = null, spotRaf = 0;
+function waitFor(sel, ms){ return new Promise(res => { const t0 = Date.now(); (function poll(){ const el = document.querySelector(sel); if (el && el.getBoundingClientRect().height > 0) return res(el); if (Date.now() - t0 > ms) return res(null); setTimeout(poll, 120); })(); }); }
+function guideStart(name){
+  const steps = GUIDES[name]; if (!steps) return;
+  panelHide(); guideClear();
+  G = {name, steps, i:0, mute:0};
+  guideShow();
+}
+async function guideShow(){
+  if (!G) return;
+  const st = G.steps[G.i];
+  if (st.before){ G.mute = Date.now() + 900; st.before(); }
+  const el = await waitFor(st.sel, 2500);
+  if (!G) return;
+  if (!el){ if (G.i < G.steps.length - 1){ G.i++; return guideShow(); } return guideEnd(); }
+  G.el = el;
+  el.scrollIntoView({block:"center", behavior:reduceMotion ? "auto" : "smooth"});
+  renderStep();
+  setTimeout(() => placeSpot(), reduceMotion ? 0 : 450);
+}
+function renderStep(){
+  const a = at(), st = G.steps[G.i], [title, text] = a.g[st.g] || ["", ""], last = G.i === G.steps.length - 1;
+  if (!spotEl){ spotEl = document.createElement("div"); spotEl.className = "spot"; document.body.appendChild(spotEl); }
+  if (!stepEl){ stepEl = document.createElement("div"); stepEl.className = "stepb"; stepEl.setAttribute("role", "dialog"); document.body.appendChild(stepEl); }
+  stepEl.innerHTML = `<div class="sh">${mascot("")}<div><small>${esc(a.step(num(G.i + 1), num(G.steps.length)))}</small><b>${esc(title)}</b></div></div><p>${esc(text)}</p>
+    <div class="row">${G.i ? `<button class="pill ghost sm" type="button" data-gs="prev">${esc(a.prev)}</button>` : ""}<button class="pill ghost sm" type="button" data-gs="skip">${esc(a.skip)}</button><button class="pill sky sm" type="button" data-gs="next">${esc(last ? a.finish : a.next)}</button></div>`;
+  stepEl.querySelectorAll("[data-gs]").forEach(b => b.addEventListener("click", () => { const k = b.dataset.gs; if (k === "skip") return guideEnd(); if (k === "prev"){ G.i = Math.max(0, G.i - 1); return guideShow(); } if (last) return guideEnd(); G.i++; guideShow(); }));
+  const nb = stepEl.querySelector('[data-gs="next"]'); if (nb) nb.focus({preventScroll:true});
+}
+function placeSpot(){
+  if (!G || !G.el || !spotEl || !stepEl) return;
+  const r = G.el.getBoundingClientRect(), pad = 6;
+  const top = Math.max(4, r.top - pad), left = Math.max(4, r.left - pad), bottom = Math.min(innerHeight - 4, r.bottom + pad), right = Math.min(innerWidth - 4, r.right + pad);
+  Object.assign(spotEl.style, {top:top + "px", left:left + "px", width:Math.max(0, right - left) + "px", height:Math.max(0, bottom - top) + "px"});
+  const bw = stepEl.offsetWidth, bh = stepEl.offsetHeight;
+  let y = bottom + 12; if (y + bh > innerHeight - 8) y = top - bh - 12; if (y < 8) y = innerHeight - bh - 12;
+  const x = Math.min(Math.max(16, r.left + r.width / 2 - bw / 2), innerWidth - bw - 16);
+  stepEl.style.top = y + "px"; stepEl.style.left = x + "px";
+}
+function onMove(){ if (!G) return; cancelAnimationFrame(spotRaf); spotRaf = requestAnimationFrame(placeSpot); }
+addEventListener("scroll", onMove, {passive:true}); addEventListener("resize", onMove);
+function guideClear(){ if (spotEl){ spotEl.remove(); spotEl = null; } if (stepEl){ stepEl.remove(); stepEl = null; } }
+function guideEnd(){ G = null; guideClear(); panelShow(); bot(at().done, menuChips()); }
+document.addEventListener("fs:rendered", e => {
+  if (!G || Date.now() < G.mute) return;
+  let j = -1; for (let x = G.i; x < G.steps.length; x++) if (G.steps[x].wait === e.detail) j = x;
+  if (j < 0) return;
+  G.i = j + 1; if (G.i >= G.steps.length) return guideEnd();
+  setTimeout(guideShow, 350);
+});
+
+/* ---------- chat panel ---------- */
+let asMode = null, asBuilt = false;
+function buildAssistant(){
+  if (asBuilt) return; asBuilt = true;
+  const l = document.createElement("button"); l.type = "button"; l.className = "as-launch"; l.id = "asLaunch"; l.innerHTML = mascot("as-l"); document.body.appendChild(l);
+  l.addEventListener("click", () => { hideHello(); $("asPanel").hidden ? assistantOpen() : panelHide(); });
+  const p = document.createElement("div"); p.className = "as-panel"; p.id = "asPanel"; p.hidden = true; p.setAttribute("role", "dialog");
+  p.innerHTML = `<div class="as-head">${mascot("as-av")}<div><b id="asName"></b><small id="asRole"></small></div><span class="qi" tabindex="0" id="asAbout" style="background:rgba(255,255,255,.25);color:#fff">?</span><button class="as-x" type="button" id="asX">${ico("x","width:18px;height:18px")}</button></div>
+    <div class="as-body" id="asBody" aria-live="polite"></div>
+    <div class="as-foot"><textarea id="asIn" rows="1"></textarea><button class="as-send" type="button" id="asSend">${ico("send","width:20px;height:20px")}</button></div>`;
+  document.body.appendChild(p);
+  $("asX").addEventListener("click", panelHide);
+  $("asSend").addEventListener("click", sendInput);
+  $("asIn").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey){ e.preventDefault(); sendInput(); } });
+  document.addEventListener("keydown", e => { if (e.key === "Escape"){ if (G) guideEnd(); else if (!$("asPanel").hidden) panelHide(); } });
+  labelAssistant();
+  if (sget("fsbd-as-hello", "") !== "1") setTimeout(showHello, 2600);
+}
+function labelAssistant(){
+  const a = at();
+  $("asLaunch").setAttribute("aria-label", a.open); $("asLaunch").setAttribute("data-tip", a.helloTitle + "|" + a.hello);
+  $("asPanel").setAttribute("aria-label", a.name); $("asName").textContent = a.name; $("asRole").textContent = a.role;
+  $("asAbout").setAttribute("data-tip", a.about); $("asX").setAttribute("aria-label", a.close);
+  $("asIn").placeholder = a.ph; $("asSend").setAttribute("aria-label", a.send);
+  const h = document.querySelector(".as-hello"); if (h) h.querySelector("span").innerHTML = `<b>${esc(a.helloTitle)}</b>${esc(a.hello)}`;
+}
+function showHello(){
+  if (!$("asPanel").hidden || G || document.querySelector(".as-hello")) return;
+  const a = at(), h = document.createElement("div"); h.className = "as-hello";
+  h.innerHTML = `<span><b>${esc(a.helloTitle)}</b>${esc(a.hello)}</span><button class="x" type="button" aria-label="${esc(a.close)}">${ico("x")}</button>`;
+  document.body.appendChild(h);
+  h.addEventListener("click", e => { if (e.target.closest(".x")){ hideHello(); return; } hideHello(); assistantOpen(); });
+}
+function hideHello(){ const h = document.querySelector(".as-hello"); if (h) h.remove(); sset("fsbd-as-hello", "1"); }
+function panelShow(){ $("asPanel").hidden = false; $("asLaunch").hidden = innerWidth <= 520; }
+function panelHide(){ $("asPanel").hidden = true; $("asLaunch").hidden = false; }
+function assistantOpen(flow){
+  buildAssistant(); hideHello(); panelShow();
+  if (!$("asBody").children.length) bot(at().greet, menuChips());
+  if (flow) runFlow(flow);
+  setTimeout(() => $("asIn").focus({preventScroll:true}), 50);
+}
+function scrollBody(){ const b = $("asBody"); b.scrollTop = b.scrollHeight; }
+function addMsg(html, me){ const d = document.createElement("div"); d.className = "as-msg" + (me ? " me" : ""); d.innerHTML = html; $("asBody").appendChild(d); scrollBody(); return d; }
+function user(text){ const d = addMsg("", true); d.textContent = text.length > 600 ? text.slice(0, 600) + "…" : text; }
+function bot(html, chips){
+  const typing = !reduceMotion ? addMsg(`<span class="as-typing"><i></i><i></i><i></i></span>`) : null;
+  const put = () => { if (typing) typing.remove(); const d = addMsg(html); if (chips && chips.length){ const c = document.createElement("div"); c.className = "as-chips"; chips.forEach(ch => { const b = document.createElement("button"); b.type = "button"; b.className = "as-chip" + (ch.red ? " red" : ""); b.innerHTML = (ch.icon ? ico(ch.icon) : "") + esc(ch.label); b.addEventListener("click", () => { user(ch.label); ch.fn(); }); c.appendChild(b); }); d.appendChild(c); } scrollBody(); };
+  if (typing) setTimeout(put, 420); else put();
+}
+function menuChips(){
+  const m = at().menu, f = k => () => runFlow(k);
+  return [{label:m.msg, icon:"chat", fn:f("msg")}, {label:m.link, icon:"link", fn:f("link")}, {label:m.file, icon:"package", fn:f("file")}, {label:m.call, icon:"phone", fn:f("call")}, {label:m.qr, icon:"qr", fn:f("qr")}, {label:m.lost, icon:"alert", red:true, fn:f("lost")}, {label:m.tour, icon:"sparkle", fn:f("tour")}, {label:m.privacy, icon:"lock", fn:f("privacy")}];
+}
+function runFlow(k){
+  const a = at(); asMode = null;
+  const pasteChat = {label:a.pasteHere, icon:"chat", fn:() => { asMode = "chat"; bot(a.pasteChat); $("asIn").focus(); }};
+  if (k === "msg" || k === "call") return bot(k === "msg" ? a.msg : a.call, [{label:a.showMe, icon:"arrow", fn:() => guideStart("chat")}, pasteChat, {label:a.tryEx, icon:"play", fn:() => guideStart("chatEx")}]);
+  if (k === "link"){ asMode = "link"; return bot(a.link, [{label:a.showMe, icon:"arrow", fn:() => guideStart("link")}, {label:a.tryEx, icon:"play", fn:() => guideStart("linkEx")}]); }
+  if (k === "file") return bot(a.file, [{label:a.showMe, icon:"arrow", fn:() => guideStart("file")}, {label:a.tryEx, icon:"play", fn:() => guideStart("fileEx")}]);
+  if (k === "qr") return bot(a.qr, [{label:a.showMe, icon:"arrow", fn:() => guideStart("qr")}]);
+  if (k === "lost") return bot(`<b style="color:var(--high)">${esc(a.lostTitle)}</b><ol>${a.lost.map(x => `<li>${x}</li>`).join("")}</ol>`, [{label:a.makeReport, icon:"file", fn:reportFlow}, {label:a.back, icon:"left", fn:() => bot(a.greet, menuChips())}]);
+  if (k === "tour") return guideStart("tour");
+  if (k === "privacy") return bot(esc(a.privacy), [{label:a.openSettings, icon:"shieldok", fn:() => { panelHide(); $("privacy").scrollIntoView({behavior:"smooth"}); const d = $("settings").querySelector("details"); if (d) d.open = true; }}, {label:a.back, icon:"left", fn:() => bot(a.greet, menuChips())}]);
+}
+function reportFlow(){
+  if (current && current.id === "custom"){ panelHide(); setTab("chat"); openReport(); return; }
+  asMode = "chatReport"; bot(at().pasteChat); $("asIn").focus();
+}
+function sendInput(){ const v = $("asIn").value; if (!v.trim()) return; $("asIn").value = ""; understand(v); }
+const INTENTS = [
+  ["lost", /(already (gave|sent|shared)|i (gave|sent|shared)|scammed|lost (my )?money|দিয়ে ফেলেছি|দিয়েছি|পাঠিয়ে ফেলেছি|পাঠিয়েছি|প্রতারিত|ঠকেছি|টাকা গেছে|টাকা চলে গেছে|taka (gese|geche|chole)|diye felechi|diye diyechi|pathiye felechi|thokechi)/i],
+  ["otp", /^(what|why|should|can|is|কেন|কী|কি|দেব|দিব).{0,40}(otp|pin|পিন|কোড|code)|(otp|pin|পিন|কোড)\s*(dibo|debo|দেব|দিব|দেওয়া|দিলে)/i],
+  ["link", /(link|লিংক|url|website|ওয়েবসাইট|site)/i],
+  ["file", /(apk|app|অ্যাপ|file|ফাইল|install|ইনস্টল|update|আপডেট)/i],
+  ["qr", /(qr|কিউআর)/i],
+  ["call", /(call|phone|ফোন|কল)/i],
+  ["msg", /(sms|message|মেসেজ|chat|চ্যাট|whatsapp|messenger|imo)/i],
+  ["privacy", /(privacy|data|safe\?|প্রাইভেসি|তথ্য|ডেটা|নিরাপদ|সেফ)/i],
+  ["tour", /(how|help|guide|tour|show|use|কীভাবে|কিভাবে|সাহায্য|দেখাও|শেখাও|ব্যবহার)/i],
+  ["thanks", /(thank|ধন্যবাদ|thanks|tnx)/i],
+  ["greet", /^(hi|hello|hey|salam|assalam|আসসালামু|সালাম|হাই|হ্যালো)\b/i]
+];
+function understand(text){
+  const a = at(), t = text.trim(); user(t);
+  const urls = extractUrls(t), words = t.split(/\s+/).length;
+  if (asMode === "link" || (urls.length && words <= 3)) return checkLinkInline(urls[0] || t);
+  if (asMode === "chat" || asMode === "chatReport" || t.includes("\n") || t.length >= 60) return checkChatInline(t, asMode === "chatReport");
+  for (const [k, re] of INTENTS){
+    if (!re.test(t)) continue;
+    if (k === "otp") return bot(esc(a.otp), menuChips().slice(0, 3));
+    if (k === "thanks") return bot(esc(a.thanks));
+    if (k === "greet") return bot(a.greet, menuChips());
+    return runFlow(k);
+  }
+  bot(esc(a.fallback), menuChips());
+}
+function checkChatInline(text, thenReport){
+  asMode = null;
+  const lines = text.split(/\n+/).map(s => s.trim()).filter(Boolean).slice(0, 100);
+  const turns = lines.map(l => /^(আমি|me)\s*:/i.test(l) ? ["me", l.replace(/^(আমি|me)\s*:\s*/i, "")] : ["o", l]);
+  const r = runConversation({id:"as", sender:"", senderType:"unknown", turns});
+  const last = [...r.perTurn].reverse().find(p => p.who !== "me") || r.perTurn[r.perTurn.length - 1];
+  const t = tx(), a = at(), v = last.verdict, top = last.contrib.filter(c => c[1] > 0)[0];
+  const g = guidance(new Set(last.contrib.map(c => c[0])))[0];
+  const card = `<div class="as-card" style="background:${VC[v].g}"><b>${esc(t.v[v][0])}</b>${esc(a.reason)}: ${esc(top ? sl(top[0]) : t.lowReasons[0][0])}<br>${esc(a.doNow)}: ${esc(t.todoL[g][0])}</div>`;
+  const openFull = rep => { $("chat").value = lines.join("\n"); senderType = "unknown"; applySender(); if (innerWidth <= 520) panelHide(); analyzeInput(); setTab("chat"); if (rep) openReport(); else goCheck(); };
+  if (thenReport){ bot(card); openFull(true); return; }
+  bot(card, [{label:a.seeFull, icon:"arrow", fn:() => openFull(false)}, {label:a.makeReport, icon:"file", fn:() => openFull(true)}]);
+}
+function checkLinkInline(u){
+  asMode = null;
+  const t = tx(), a = at(), r = inspectUrl(u, {trusted:trustList()});
+  if (r.status !== "complete") return bot(esc(t.linkErr[r.notices[0]] || t.linkErr.malformed), menuChips().slice(0, 3));
+  const card = `<div class="as-card" style="background:${VC[r.verdict].g}"><b>${esc(t.linkV[r.category][0])}</b>${esc(t.realSite)}: <code style="color:#fff">${esc(r.reg)}</code>${r.lookalikeOf ? `<br>${esc(t.pretends)}: ${esc(r.lookalikeOf)}` : ""}<br>${esc(a.doNow)}: ${esc(t.linkActShort[r.action])}</div>`;
+  bot(card, [{label:a.seeDetails, icon:"arrow", fn:() => { $("linkIn").value = u; if (innerWidth <= 520) panelHide(); runLink(u); goCheck(); }}]);
+}
+document.addEventListener("fs:lang", () => { if (asBuilt) labelAssistant(); if (G) renderStep(); });
+buildAssistant();
 
 })();
 </script>
