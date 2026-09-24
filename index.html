@@ -147,13 +147,30 @@ input.txt{font:15px var(--body);color:var(--ink);background:var(--skybg);border:
 
 /* result */
 .res{overflow:hidden}
-.banner{padding:20px;display:grid;grid-template-columns:88px 1fr auto;gap:16px;align-items:center;color:#fff}
-@media (max-width:560px){.banner{grid-template-columns:64px 1fr}.banner .gauge{grid-column:1/-1;justify-self:center}}
-.banner h3{margin:0;font:800 clamp(23px,3vw,30px)/1.05 var(--disp)}
-.banner p{margin:6px 0 0;font-size:15px;opacity:.96}
-.gauge{width:120px}
+.v-high{--vc:#E07A6B;--vs:#FFF3F0;--vt:#A4453A;--vb:#F6D9D3}
+.v-verify{--vc:#E3A74F;--vs:#FFF8EC;--vt:#8A5A12;--vb:#F3E1BF}
+.v-low{--vc:#46B394;--vs:#EEFAF5;--vt:#1F6F59;--vb:#CBEBDF}
+.v-abstain{--vc:#94A8BC;--vs:#F2F6FA;--vt:#4B6584;--vb:#DDE6EF}
+.banner{padding:20px;display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center;color:var(--ink);background:linear-gradient(135deg,#FFFFFF 0%,var(--vs) 100%);border-bottom:1px solid var(--vb)}
+.banner .vring{width:96px;height:96px;display:block;filter:drop-shadow(0 6px 14px rgba(11,37,69,.08))}
+.banner h3{margin:0;font:800 clamp(22px,2.8vw,28px)/1.1 var(--disp);color:var(--navy);display:flex;align-items:center;gap:10px}
+.banner h3 i{width:12px;height:12px;border-radius:50%;background:var(--vc);box-shadow:0 0 0 5px color-mix(in srgb,var(--vc) 20%,transparent);flex:none}
+.banner p{margin:6px 0 0;font-size:15px;color:var(--muted)}
+.banner .when{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:#fff;border:1px solid var(--vb);border-radius:999px;padding:5px 11px;font:600 13px/1.2 var(--body);color:var(--vt)}
+@media (max-width:560px){.banner{grid-template-columns:72px 1fr;padding:16px}.banner .vring{width:72px;height:72px}}
+.whys{padding:14px 20px 4px;display:flex;flex-direction:column;gap:8px}
+.why{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 12px 8px 8px;font:600 14.5px/1.35 var(--body)}
+.why .wi{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--vs);color:var(--vt)}
+.why .wi .ico{width:19px;height:19px}
+.why small{font:600 11.5px var(--mono);color:var(--muted);white-space:nowrap}
+.why.ok .wi{background:#EEFAF5;color:#1F6F59}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:2px}
+.ptag{display:inline-flex;align-items:center;gap:6px;background:#EEF6FC;color:var(--deep);border-radius:999px;padding:6px 11px;font:700 13px/1.2 var(--disp)}
+.ptag .ico{width:15px;height:15px;color:var(--vc)}
+.as-card{background:linear-gradient(135deg,#FFFFFF,var(--vs));color:var(--ink);border:1px solid var(--vb)}
+.as-card b{color:var(--vt)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;padding:16px 20px 4px}
-.rchip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid var(--c);color:var(--ink);border-radius:999px;padding:7px 12px;font:600 14px/1.2 var(--body)}
+.rchip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:7px 12px;font:600 14px/1.2 var(--body)}
 .rchip b{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
 .dos{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;padding:12px 20px}
 .do{background:var(--skybg);border-radius:16px;padding:12px;display:flex;gap:10px;align-items:center;font-size:14px;line-height:1.35}
@@ -216,7 +233,7 @@ mark.ev{background:transparent;color:inherit;border-bottom:3px solid var(--c);pa
 .consent .row{display:flex;gap:8px;flex-wrap:wrap}
 .perms{display:flex;flex-wrap:wrap;gap:6px}
 .perm{border-radius:999px;padding:5px 10px;font:600 13px/1.3 var(--body);background:var(--skybg);color:var(--muted)}
-.perm.hi{background:var(--high-soft);color:var(--high)}
+.perm.hi{background:#FFF3F0;color:#A4453A}
 .perm.md{background:var(--verify-soft);color:#92400E}
 .hash{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 
@@ -323,12 +340,12 @@ footer b{color:#fff}
 .realsite{padding:16px 20px 0;display:flex;flex-direction:column;gap:8px}
 .addr{display:flex;align-items:center;gap:10px;border-radius:18px;padding:12px 14px;background:#fff;border:3px solid var(--line);box-shadow:var(--shadow);flex-wrap:wrap}
 .addr .ai{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none}
-.addr.bad{border-color:#FCA5A5}.addr.bad .ai{background:var(--high-soft);color:var(--high)}
-.addr.mid{border-color:#FCD34D}.addr.mid .ai{background:var(--verify-soft);color:var(--verify)}
-.addr.ok{border-color:#86EFAC}.addr.ok .ai{background:var(--low-soft);color:var(--low)}
+.addr.bad{border-color:#F3CFC8}.addr.bad .ai{background:#FFF3F0;color:#C4574A}
+.addr.mid{border-color:#F3E1BF}.addr.mid .ai{background:#FFF8EC;color:#B07A22}
+.addr.ok{border-color:#CBEBDF}.addr.ok .ai{background:#EEFAF5;color:#2E8C72}
 .addr .lab{font:700 12px/1 var(--disp);color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
 .addr .dom{font:700 clamp(17px,2.4vw,22px)/1.2 var(--mono);color:var(--ink);word-break:break-all;flex-basis:100%}
-.mask{display:flex;align-items:center;gap:8px;background:var(--high-soft);color:var(--high);border-radius:14px;padding:9px 12px;font:600 14px/1.3 var(--body);flex-wrap:wrap}
+.mask{display:flex;align-items:center;gap:8px;background:#FFF5F2;color:#A4453A;border:1px solid #F6D9D3;border-radius:14px;padding:9px 12px;font:600 14px/1.3 var(--body);flex-wrap:wrap}
 .mask b{font-family:var(--mono)} .mask s{font-family:var(--mono);opacity:.8}
 .appcard{margin:16px 20px 0;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;background:#fff;border:2px solid var(--line);border-radius:20px;padding:12px;position:relative;box-shadow:var(--shadow)}
 .aicon{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#7DD3FC,#0284C7);color:#fff}
@@ -338,11 +355,11 @@ footer b{color:#fff}
 .ainfo b{font:800 18px/1.2 var(--disp)} .ainfo span{font-size:13.5px;color:var(--muted)} .ainfo code{font:12px var(--mono);color:var(--muted);word-break:break-all}
 .stamps{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
 .stamps:empty{display:none}
-.stamp{font:800 12px/1 var(--disp);letter-spacing:.06em;color:var(--high);border:2.5px solid var(--high);border-radius:8px;padding:6px 9px;transform:rotate(-3deg);background:#fff}
+.stamp{font:800 12px/1 var(--disp);letter-spacing:.06em;color:#C4574A;border:2px solid #E3A195;border-radius:8px;padding:6px 9px;transform:rotate(-3deg);background:#fff}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;padding:10px 20px 0}
 .ptile{border-radius:16px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font:700 12.5px/1.2 var(--body)}
 .ptile .pi2{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#fff}
-.ptile.hi{background:var(--high-soft);color:var(--high)} .ptile.md{background:var(--verify-soft);color:#92400E}
+.ptile.hi{background:#FFF3F0;color:#A4453A} .ptile.md{background:#FFF8EC;color:#8A5A12}
 .setdet summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
 .setdet summary::-webkit-details-marker{display:none}
 .setdet[open] summary .chev{transform:rotate(180deg)}
@@ -367,7 +384,7 @@ footer b{color:#fff}
 .as-msg.me{align-self:flex-end;background:var(--sky);color:#fff;border-radius:16px 16px 4px 16px;white-space:pre-wrap;word-break:break-word}
 .as-msg ol{margin:6px 0 0;padding-left:20px} .as-msg li{margin-bottom:4px}
 .as-msg a{color:var(--deep);font-weight:700}
-.as-card{border-radius:14px;padding:10px 12px;color:#fff;margin-top:6px}
+.as-card{border-radius:14px;padding:10px 12px;margin-top:6px}
 .as-card b{display:block;font:800 16px/1.2 var(--disp)}
 .as-chips{display:flex;flex-wrap:wrap;gap:6px}
 .as-chip{border:2px solid var(--sky3);background:#fff;color:var(--deep);border-radius:999px;padding:7px 11px;font:700 13.5px/1.2 var(--disp);cursor:pointer;display:inline-flex;gap:6px;align-items:center}
@@ -1525,7 +1542,7 @@ Object.assign(T.en, {
   linkActShort:{delete:"Don't open. Delete it.", dont_open:"Don't open it", careful:"Be careful", short:"Ask for the full link", use_app:"Use the official app", your_choice:"Never type PIN or OTP"},
   fileActShort:{store_only:"Play Store only", never_run:"Never run it", dont_open:"Don't open it", no_macros:"No macros", delete:"Delete it", careful:"Be careful"},
   fileDosShort:{store:"Play Store only", delete:"Delete the file", access:"No “Accessibility”", call:"Call the official number"},
-  settingsTitle:"Settings",
+  settingsTitle:"Settings", whyLbl:"Why", patLbl:"Pattern:",
   foot:'<b>FraudShield BD</b> · research prototype by Fabliha Afia (CSE, BUET) · ZRF ভবিষ্যৎ বিজ্ঞানীর খোঁজে ২০২৬<br>Not affiliated with bKash, Nagad, Rocket or any bank · Examples are fictional · Scammed? Call 999 or your provider (bKash 16247 · Nagad 16167 · Rocket 16216)'
 });
 Object.assign(T.bn, {
@@ -1542,7 +1559,7 @@ Object.assign(T.bn, {
   linkActShort:{delete:"খুলবেন না, ডিলিট করুন", dont_open:"খুলবেন না", careful:"সাবধান থাকুন", short:"পুরো লিংক চেয়ে নিন", use_app:"অফিশিয়াল অ্যাপ খুলুন", your_choice:"পিন বা OTP দেবেন না"},
   fileActShort:{store_only:"শুধু Play Store", never_run:"কখনো চালাবেন না", dont_open:"খুলবেন না", no_macros:"ম্যাক্রো না", delete:"ডিলিট করুন", careful:"সাবধান থাকুন"},
   fileDosShort:{store:"শুধু Play Store", delete:"ফাইল ডিলিট করুন", access:"“Accessibility” দেবেন না", call:"অফিশিয়াল নম্বরে ফোন"},
-  settingsTitle:"সেটিংস",
+  settingsTitle:"সেটিংস", whyLbl:"কেন", patLbl:"প্যাটার্ন:",
   foot:'<b>FraudShield BD</b> · রিসার্চ প্রোটোটাইপ: Fabliha Afia (সিএসই, বুয়েট) · ভবিষ্যৎ বিজ্ঞানীর খোঁজে ২০২৬<br>বিকাশ, নগদ, রকেট বা কোনো ব্যাংকের সাথে সম্পর্কিত না · সব উদাহরণ বানানো · প্রতারণার শিকার? ৯৯৯ বা প্রোভাইডারকে ফোন করুন (বিকাশ ১৬২৪৭ · নগদ ১৬১৬৭ · রকেট ১৬২১৬)'
 });
 
@@ -1799,6 +1816,22 @@ function gauge(score){
   const p = Math.round(score * 100);
   return `<svg class="gauge" viewBox="0 0 128 84" role="img" aria-label="${p}/100" tabindex="0" ${tipS(tx().gaugeTip)}><path d="M14 72a50 50 0 0 1 100 0" pathLength="100" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="12" stroke-linecap="round"/><path d="M14 72a50 50 0 0 1 100 0" pathLength="100" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-dasharray="${Math.max(2,p)} 100"/><text x="64" y="64" text-anchor="middle" font-size="30" font-weight="800" fill="#fff" font-family="Baloo Da 2, sans-serif">${num(p)}</text><text x="64" y="82" text-anchor="middle" font-size="10" fill="#fff" opacity=".9">/100</text></svg>`;
 }
+
+/* ---------- calm verdict header (soft tint + score ring, no loud colour blocks) ---------- */
+const RING = {high:"#E07A6B", verify:"#E3A74F", low:"#46B394", abstain:"#94A8BC"};
+const FAM_ICON = {credential:"lock", action:"taka", url:"link", identity:"user", urgency:"alert", lure:"star", secrecy:"eyeoff", manipulation:"eyeoff", benign_counterevidence:"shieldok"};
+function ring(v, score){
+  const c = RING[v] || RING.abstain, R = 40, C = 2 * Math.PI * R;
+  if (score == null){
+    const mark = v === "high" ? '<path d="M-11-11 11 11M11-11-11 11" stroke-width="7"/>' : v === "verify" ? '<path d="M0-14V3" stroke-width="7"/><circle cy="13" r="4" stroke="none" fill="' + c + '"/>' : v === "low" ? '<path d="M-13 1-4 10 13-9" stroke-width="7"/>' : '<path d="M-7-7a7 7 0 1 1 7 7v4" stroke-width="6"/><circle cy="13" r="3.5" stroke="none" fill="' + c + '"/>';
+    return `<svg class="vring" viewBox="-50 -50 100 100" aria-hidden="true"><circle r="${R}" fill="#fff" stroke="${c}" stroke-opacity=".25" stroke-width="10"/><g stroke="${c}" fill="none" stroke-linecap="round" stroke-linejoin="round">${mark}</g></svg>`;
+  }
+  const p = Math.max(2, Math.round(score * 100));
+  return `<svg class="vring" viewBox="-50 -50 100 100" role="img" aria-label="${p}/100" tabindex="0" ${tipS(tx().gaugeTip)}><circle r="${R}" fill="#fff" stroke="#E3EEF7" stroke-width="10"/><circle r="${R}" fill="none" stroke="${c}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${(C * p / 100).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90)"/><text y="6" text-anchor="middle" font-size="24" font-weight="800" fill="#0B2545" font-family="Baloo Da 2, sans-serif">${num(p)}</text><text y="22" text-anchor="middle" font-size="9" fill="#4B6584">/100</text></svg>`;
+}
+function vhead(v, title, sub, extra, score){
+  return `<div class="banner v-${v}">${ring(v, score)}<div class="vtext"><h3><i></i>${esc(title)}</h3><p>${esc(sub)}</p>${extra || ""}</div></div>`;
+}
 function lastOther(){ const pts = result.perTurn.slice(0, turnIdx); return [...pts].reverse().find(x => x.who !== "me") || pts[pts.length-1]; }
 const TODO_ICON = {cred:"lock", install:"app", link:"link", money:"taka", wrong:"refresh", verify:"phone", ident:"card", manip:"eyeoff", none:"shieldok"};
 function renderResult(){
@@ -1810,14 +1843,14 @@ function renderResult(){
   const pos = last.contrib.filter(c => c[1] > 0).slice(0, 4);
   const pats = matchPatterns(result.perTurn, turnIdx);
   pats.forEach(p => { if (!seenPats.has(p.id)){ seenPats.add(p.id); if (playing) toast(t.patToast(t.pat[p.id][0])); } });
-  const chips = (v === "low" || v === "abstain") && !pos.length
-    ? t.lowReasons.map(r => `<span class="rchip" style="--c:var(--low)" tabindex="0" ${tip(r[0], r[1])}><b></b>${esc(r[0])}</span>`).join("")
-    : pos.map(([s,w,tt]) => `<span class="rchip" style="--c:var(${SIG[s].c})" tabindex="0" ${tip(sl(s), (t.sigx[s] || "") + ` (${t.msg} ${num(tt)})`)}><b></b>${esc(sl(s))}</span>`).join("")
-      + pats.map(p => `<span class="rchip" style="--c:var(--high)" tabindex="0" ${tip(t.pat[p.id][0], t.patTip.split("|")[1])}>${ico("alert","width:16px;height:16px;color:var(--high)")} ${esc(t.pat[p.id][0])}</span>`).join("");
-  const alertLine = turnIdx === result.perTurn.length && result.firstAlert ? `<br><b>${t.firstAlert(num(result.firstAlert), result.firstSuspicion ? num(result.firstSuspicion) : null)}</b>` : "";
+  const reasons = (v === "low" || v === "abstain") && !pos.length
+    ? t.lowReasons.map(r => `<div class="why ok" tabindex="0" ${tip(r[0], r[1])}><span class="wi">${ico("check")}</span><span>${esc(r[0])}</span></div>`).join("")
+    : pos.slice(0, 3).map(([s,w,tt]) => `<div class="why" tabindex="0" ${tip(sl(s), (t.sigx[s] || "") + ` (${t.msg} ${num(tt)})`)}><span class="wi">${ico(FAM_ICON[SIG[s].fam] || "alert")}</span><span>${esc(sl(s))}</span><small>${esc(t.msg)} ${num(tt)}</small></div>`).join("");
+  const patTags = pats.length ? `<div class="ptags"><span class="small" style="font-weight:700">${esc(t.patLbl)}</span>${pats.map(p => `<span class="ptag" tabindex="0" ${tip(t.pat[p.id][0], t.patTip.split("|")[1])}>${ico("alert")}${esc(t.pat[p.id][0])}</span>`).join("")}</div>` : "";
+  const alertLine = turnIdx === result.perTurn.length && result.firstAlert ? `<span class="when">${ico("alert","width:15px;height:15px")}${t.firstAlert(num(result.firstAlert), result.firstSuspicion ? num(result.firstSuspicion) : null)}</span>` : "";
   el.innerHTML = `
-    <div class="banner" style="background:${vc.g}"><div>${verdictArt(v)}</div><div><h3>${t.v[v][0]}</h3><p>${t.v[v][1]}${alertLine}</p></div>${gauge(last.score)}</div>
-    <div class="chips">${chips}</div>
+    ${vhead(v, t.v[v][0], t.v[v][1], alertLine, last.score)}
+    <div class="whys v-${v}"><div class="lbl" style="margin:0">${esc(t.whyLbl)}</div>${reasons}${patTags}</div>
     <div class="lbl" style="padding:14px 20px 0;margin:0">${ico("check","width:18px;height:18px;color:var(--sky)")} ${t.todo}</div>
     <div class="dos">${guidance(seen).map(k => `<div class="do" tabindex="0" ${tip(t.todoL[k][0], t.todoL[k][1])}><span class="di">${ico(TODO_ICON[k])}</span><b style="font-weight:600">${esc(t.todoL[k][0])}</b></div>`).join("")}</div>
     <div class="bar"><button class="pill sky sm" type="button" id="aReplay">${ico(playing ? "stop" : "play","width:18px;height:18px")} ${playing ? t.stop : t.replay}</button><button class="pill ghost sm" type="button" id="aReport">${ico("file","width:18px;height:18px")} ${t.report}</button>
@@ -1957,7 +1990,7 @@ function renderLink(r, art, kind){
       ${r.userinfo ? `<div class="mask" tabindex="0" ${tip(t.linkFlag.userinfo[0], t.linkFlag.userinfo[1])}>${ico("x")}<span>${esc(t.hiddenPart)}</span><s>${esc(r.userinfo)}</s></div>` : ""}
     </div>` : "";
   el.innerHTML = `
-    <div class="banner" style="background:${vc.g}"><div>${verdictArt(r.verdict)}</div><div><h3>${esc(title)}</h3><p>${esc(sub)}${kind === "qr" ? `<br><b>${esc(t.fromQR)}</b>` : ""}</p></div></div>
+    ${vhead(r.verdict, title, sub, kind === "qr" ? `<span class="when">${ico("qr","width:15px;height:15px")}${esc(t.fromQR)}</span>` : "")}
     ${pic}
     <div class="chips">${risks.map(e => chip(e, e.confidenceBand === "low" ? "--verify" : "--high")).join("")}${goods.map(e => chip(e, "--low")).join("")}</div>
     <div class="dos"><div class="do" tabindex="0" ${tip(actShort, actLong)}><span class="di">${ico(r.verdict === "low" ? "app" : "stop")}</span><b style="font-weight:700">${esc(actShort)}</b></div></div>
@@ -2046,7 +2079,7 @@ function renderFile(){
     row("list", r.known ? `<b style="color:var(--high)">${esc(t.hashKnown(r.known))}</b>` : esc(t.hashUnknown))];
   if (a) facts.push(ar("version", esc(a.version || "–")), ar("official", a.officialPkg ? esc(t.officialYes) : a.claimed ? `<b style="color:var(--high)">${esc(t.officialNo)}</b>` : "–"), ar("signed", `<span tabindex="0" ${tipS(t.signedTip)}>${esc(a.signed ? t.yes : t.no)} <span class="qi">?</span></span>`), ar("exported", `<span tabindex="0" ${tipS(t.exportedTip)}>${num(a.exported)} <span class="qi">?</span></span>`));
   el.innerHTML = `
-    <div class="banner" style="background:${vc.g}"><div>${verdictArt(r.verdict)}</div><div><h3>${esc(title)}</h3><p>${esc(sub)}</p></div></div>
+    ${vhead(r.verdict, title, sub)}
     ${card}
     ${permBlock}
     <div class="dos">${dos.map(([ic, s1, s2]) => `<div class="do" tabindex="0" ${tip(s1, s2)}><span class="di">${ico(ic)}</span><b style="font-weight:700">${esc(s1)}</b></div>`).join("")}</div>
@@ -2438,7 +2471,7 @@ function checkChatInline(text, thenReport){
   const last = [...r.perTurn].reverse().find(p => p.who !== "me") || r.perTurn[r.perTurn.length - 1];
   const t = tx(), a = at(), v = last.verdict, top = last.contrib.filter(c => c[1] > 0)[0];
   const g = guidance(new Set(last.contrib.map(c => c[0])))[0];
-  const card = `<div class="as-card" style="background:${VC[v].g}"><b>${esc(t.v[v][0])}</b>${esc(a.reason)}: ${esc(top ? sl(top[0]) : t.lowReasons[0][0])}<br>${esc(a.doNow)}: ${esc(t.todoL[g][0])}</div>`;
+  const card = `<div class="as-card v-${v}"><b>${esc(t.v[v][0])}</b>${esc(a.reason)}: ${esc(top ? sl(top[0]) : t.lowReasons[0][0])}<br>${esc(a.doNow)}: ${esc(t.todoL[g][0])}</div>`;
   const openFull = rep => { $("chat").value = lines.join("\n"); senderType = "unknown"; applySender(); if (innerWidth <= 520) panelHide(); analyzeInput(); setTab("chat"); if (rep) openReport(); else goCheck(); };
   if (thenReport){ bot(card); openFull(true); return; }
   bot(card, [{label:a.seeFull, icon:"arrow", fn:() => openFull(false)}, {label:a.makeReport, icon:"file", fn:() => openFull(true)}]);
@@ -2447,7 +2480,7 @@ function checkLinkInline(u){
   asMode = null;
   const t = tx(), a = at(), r = inspectUrl(u, {trusted:trustList()});
   if (r.status !== "complete") return bot(esc(t.linkErr[r.notices[0]] || t.linkErr.malformed), menuChips().slice(0, 3));
-  const card = `<div class="as-card" style="background:${VC[r.verdict].g}"><b>${esc(t.linkV[r.category][0])}</b>${esc(t.realSite)}: <code style="color:#fff">${esc(r.reg)}</code>${r.lookalikeOf ? `<br>${esc(t.pretends)}: ${esc(r.lookalikeOf)}` : ""}<br>${esc(a.doNow)}: ${esc(t.linkActShort[r.action])}</div>`;
+  const card = `<div class="as-card v-${r.verdict}"><b>${esc(t.linkV[r.category][0])}</b>${esc(t.realSite)}: <code>${esc(r.reg)}</code>${r.lookalikeOf ? `<br>${esc(t.pretends)}: ${esc(r.lookalikeOf)}` : ""}<br>${esc(a.doNow)}: ${esc(t.linkActShort[r.action])}</div>`;
   bot(card, [{label:a.seeDetails, icon:"arrow", fn:() => { $("linkIn").value = u; if (innerWidth <= 520) panelHide(); runLink(u); goCheck(); }}]);
 }
 document.addEventListener("fs:lang", () => { if (asBuilt) labelAssistant(); if (G) renderStep(); });
