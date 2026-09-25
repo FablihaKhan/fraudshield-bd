@@ -652,7 +652,7 @@ body.ws-on{background:linear-gradient(180deg,#E0F2FE 0,#F0F9FF 280px,#F7FBFF 100
 .wsview button{border:0;background:transparent;border-radius:999px;padding:6px 12px;font:700 13px var(--body);color:var(--deep);cursor:pointer}
 .wsview button[aria-pressed="true"]{background:var(--sky);color:#fff}
 .wsslot .tabs,.wsslot #labTabs{display:none}
-.wsview.fx[data-lv="simple"]{display:none}
+
 #ws{min-height:100vh}
 @media (max-width:620px){.wstiles,.wsh-pro .wstiles{grid-template-columns:1fr!important}.wsh-everyday .wstiles{grid-template-columns:repeat(2,minmax(0,1fr))!important}.wsth .wsview{width:100%;justify-content:space-between}}
 .wsless{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
@@ -2975,7 +2975,7 @@ const LB = {
    scanner_tool:["হ্যাকিং টুল ধরা পড়েছে", d=>`${d.ip} নিজের পরিচয় দিয়েছে: ${d.tools.join(", ")}।`, "কেউ হ্যাকিং টুল ব্যবহার করেছে।"],
    csrf:["অন্য সাইট থেকে জাল রিকোয়েস্ট (CSRF)", d=>`${d.paths.join(", ")}-এ ${d.count}টা টাকা/সেটিংসের রিকোয়েস্ট এসেছে ${d.from} থেকে, ${d.site} থেকে না। লগইন থাকা ${d.victims} জন ভিজিটর ধোঁকা খেয়েছে; ${d.done}টা সফল হয়েছে।`, "অন্য একটা সাইট আপনার ইউজারদের ব্রাউজার দিয়ে তাদের অজান্তে টাকা পাঠিয়েছে।"]
   },
-  lAct:{ddos:"CDN / হোস্টিং-এ DDoS প্রোটেকশন চালু করুন (রেট লিমিট, চ্যালেঞ্জ পেজ)। প্রোভাইডারকে ফোন করুন।", dos_single:"ফায়ারওয়ালে ওই ঠিকানা রেট-লিমিট বা ব্লক করুন।", traffic_rise:"পরের কয়েক মিনিট নজর রাখুন। প্রোভাইডারকে তৈরি থাকতে বলুন।", bruteforce:"ঠিকানাটা ব্লক করুন। লগইনে রেট লিমিট আর CAPTCHA দিন।", bruteforce_success:"অ্যাকাউন্টটা লক করুন, পাসওয়ার্ড রিসেট করুন, কী করেছে দেখুন।", scan:".env, .git-এর মতো খোলা ফাইল সরান। স্ক্যানারকে ব্লক করুন।", injection:"অ্যাপে SQLi / XSS আছে কি না দেখুন। WAF আর নিরাপদ ডেটাবেস কোয়েরি ব্যবহার করুন।", scanner_tool:"ফায়ারওয়ালে ঠিকানাটা ব্লক করুন।"},
+  lAct:{ddos:"CDN / হোস্টিং-এ DDoS প্রোটেকশন চালু করুন (রেট লিমিট, চ্যালেঞ্জ পেজ)। প্রোভাইডারকে ফোন করুন।", dos_single:"ফায়ারওয়ালে ওই ঠিকানা রেট-লিমিট বা ব্লক করুন।", traffic_rise:"পরের কয়েক মিনিট নজর রাখুন। প্রোভাইডারকে তৈরি থাকতে বলুন।", bruteforce:"ঠিকানাটা ব্লক করুন। লগইনে রেট লিমিট আর CAPTCHA দিন।", bruteforce_success:"অ্যাকাউন্টটা লক করুন, পাসওয়ার্ড রিসেট করুন, কী করেছে দেখুন।", scan:".env, .git-এর মতো খোলা ফাইল সরান। স্ক্যানারকে ব্লক করুন।", injection:"অ্যাপে SQLi / XSS আছে কি না দেখুন। WAF আর নিরাপদ ডেটাবেস কোয়েরি ব্যবহার করুন।", scanner_tool:"ফায়ারওয়ালে ঠিকানাটা ব্লক করুন।", csrf:"টাকা বা সেটিংসের কাজে CSRF টোকেন আর SameSite=Lax/Strict কুকি দিন, Origin চেক করুন। ক্ষতিগ্রস্তদের টাকা ফেরত দিন।"},
   logDos:{high:[["alert","এখনই IT টিমকে জানান"],["shieldok","DDoS / হামলা প্রোটেকশন চালু করুন"]], verify:[["activity","ট্রাফিকে নজর রাখুন"]], low:[["check","কিছু করতে হবে না"]]},
   chartT:"প্রতি মিনিটে রিকোয়েস্ট", chBase:"স্বাভাবিক মাত্রা", chWarn:"আগাম সতর্কতা", chAlert:"অ্যালার্ট", chPeak:"সর্বোচ্চ",
   chTip:(time, n, base, ratio, uniq) => `${time} · ${n}টা রিকোয়েস্ট|স্বাভাবিক ≈ ${base} · ${ratio} গুণ · ${uniq}টা ঠিকানা`,
