@@ -13,6 +13,8 @@ Research prototype by **Fabliha Afia** (CSE, BUET) for the Ziaur Rahman Foundati
 
 Three viewing levels: **Easy** (just what to do), **Learn** (why, with 30-second lessons) and **Expert** (raw analysis console).
 
+**Profiles**: the first screen asks “Who is using FraudShield?” — Everyday, Learner, Website & code, or Security pro. Each gets its own home with only its tools, and each tool opens on its own screen. No account; the choice stays on the device. The full website is one tap away.
+
 **Security Lab** (for IT teams and learners): open a Wi-Fi packet capture (.pcap / .pcapng) to spot ARP spoofing, DNS spoofing, look-alike domains and passwords sent without TLS, or a web server log (Apache / Nginx) for DDoS early warning, password guessing, scanning and injection attempts. Everything is analysed in the browser.
 
 **Password check**: shows how fast a password falls to online guessing versus an offline attack on a leaked database (slow salted hash vs fast MD5/SHA), makes 7-word passphrases, and offers an opt-in leak check with Have I Been Pwned that sends only the first 5 characters of the SHA-1 hash (k-anonymity). A live PBKDF2 demo in Expert view.
