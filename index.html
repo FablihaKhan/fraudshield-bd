@@ -3814,7 +3814,7 @@ function setTrust(domain, on){
   renderSettings();
 }
 function wipeAll(){
-  ["fsbd-feedback","fsbd-lang","fsbd-trust","fsbd-online","fsbd-testsig"].forEach(sdel);
+  ["fsbd-feedback","fsbd-lang","fsbd-trust","fsbd-online","fsbd-testsig","fsbd-profile","fsbd-lastprof","fsbd-level"].forEach(sdel);
   session.links.length = 0; session.files.length = 0;
   $("report").hidden = true; $("chat").value = ""; $("linkIn").value = ""; result = null; linkRes = null; fileRes = null; qrRes = null; qrText = null;
   renderView(); renderSettings(); $("wipeMsg").textContent = tx().wiped;
