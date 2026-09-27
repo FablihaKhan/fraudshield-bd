@@ -1125,11 +1125,11 @@ const SAMPLE_FILES = {
 const DEMO_HASHES = {'1e63e1b44fea0302d765ee7fda9aaac2fb56e4cd74c42c88fe8987eb4d9e154c':'FraudShield demo sample: fake bKash update'};
 
 /* ================= Security modules (Application Feature Integration Pipeline) ================= */
-/* Shared evidence contract (blueprint §3.1). Every module returns ModuleResult-shaped objects. */
+/* Shared evidence contract. Every module returns ModuleResult-shaped objects. */
 let EVSEQ = 0;
 function mkEv(o){ return Object.assign({id:"ev" + (++EVSEQ), state:"risk", source:"local-parser", observedAt:new Date().toISOString(), localOnly:true, confidenceBand:"medium"}, o); }
 function modResult(status, evidence, notices, extra){ return Object.assign({status, evidence:evidence || [], notices:notices || [], checkedAt:new Date().toISOString()}, extra || {}); }
-/* Feature registry (blueprint §3.3): offline = works with no network; optin = online only after consent; helper = needs a planned helper; android = Android/desktop companion only; preview = shown, not active */
+/* Feature registry: offline = works with no network; optin = online only after consent; helper = needs a planned helper; android = Android/desktop companion only; preview = shown, not active */
 const FEATURE_STATES = {F1:"offline", F2:"offline", F3:"offline", F4:"offline", F5:"preview", F6:"offline", F7:"offline", F8:"offline", FILE:"offline", DNS:"optin", TLS:"helper", NET:"android"};
 
 /* ---------- punycode (RFC 3492 decode) so look-alike hostnames can be shown and compared ---------- */
@@ -2409,7 +2409,7 @@ const T = {
   testLbl:"Include the EICAR test signature", testTip:"Test signature|A harmless industry test file used to check that file scanning works.",
   trustLbl:"My trusted sites", trustNone:"None yet.", wipe:"Delete all my data", wiped:"Deleted. Settings reset.",
   fabTip:"Scammed? Get help|Tap for helplines.", fabToast:"Emergency 999 · bKash 16247 · Nagad 16167 · Rocket 16216",
-  foot:'<b>FraudShield BD</b> · a research prototype by Fabliha Afia (CSE, BUET) for ZRF ভবিষ্যৎ বিজ্ঞানীর খোঁজে ২০২৬. Not affiliated with bKash, Nagad, Rocket or any bank. Transparent rules with hand-set weights, not yet a trained model; all examples and sample files are fictional and harmless. It is not an antivirus, firewall or VPN. If you are scammed: call 999, or your provider using the number on your card or official app (e.g. bKash 16247, Nagad 16167, Rocket 16216). Bangladesh Bank 16236 · scamcheck.gov.bd.'
+  foot:'<b>FraudShield BD</b> · a research prototype by Fabliha Afia (CSE, BUET). Not affiliated with bKash, Nagad, Rocket or any bank. Transparent rules with hand-set weights, not yet a trained model; all examples and sample files are fictional and harmless. It is not an antivirus, firewall or VPN. If you are scammed: call 999, or your provider using the number on your card or official app (e.g. bKash 16247, Nagad 16167, Rocket 16216). Bangladesh Bank 16236 · scamcheck.gov.bd.'
  },
  bn:{
   nav:[["#check","চেক"],["#features","ফিচার"],["#lab","ল্যাব"],["#scams","স্ক্যাম"],["#tips","সাবধান থাকুন"],["#privacy","প্রাইভেসি"]], navCta:"এখনই চেক",
@@ -2542,7 +2542,7 @@ const T = {
   testLbl:"EICAR টেস্ট সিগনেচার যোগ করুন", testTip:"টেস্ট সিগনেচার|ফাইল চেক ঠিকমতো কাজ করছে কি না দেখার জন্য নিরাপদ টেস্ট ফাইল।",
   trustLbl:"আমার ভরসার সাইট", trustNone:"এখনো কিছু নেই।", wipe:"আমার সব ডেটা ডিলিট করুন", wiped:"ডিলিট হয়েছে। সেটিংস আগের মতো।",
   fabTip:"প্রতারণার শিকার? সাহায্য নিন|হেল্পলাইন দেখতে চাপ দিন।", fabToast:"জরুরি ৯৯৯ · বিকাশ ১৬২৪৭ · নগদ ১৬১৬৭ · রকেট ১৬২১৬",
-  foot:'<b>FraudShield BD</b> · Fabliha Afia (সিএসই, বুয়েট)-এর রিসার্চ প্রোটোটাইপ, ভবিষ্যৎ বিজ্ঞানীর খোঁজে ২০২৬। বিকাশ, নগদ, রকেট বা কোনো ব্যাংকের সাথে সম্পর্কিত না। এখন রুল-ভিত্তিক, হাতে বসানো ওজন; সব উদাহরণ আর নমুনা ফাইল বানানো ও নিরাপদ। এটা অ্যান্টিভাইরাস, ফায়ারওয়াল বা VPN না। প্রতারণার শিকার হলে: ৯৯৯, অথবা কার্ড বা অফিশিয়াল অ্যাপে লেখা নম্বরে (যেমন বিকাশ ১৬২৪৭, নগদ ১৬১৬৭, রকেট ১৬২১৬)। বাংলাদেশ ব্যাংক ১৬২৩৬ · scamcheck.gov.bd।'
+  foot:'<b>FraudShield BD</b> · Fabliha Afia (সিএসই, বুয়েট)-এর রিসার্চ প্রোটোটাইপ। বিকাশ, নগদ, রকেট বা কোনো ব্যাংকের সাথে সম্পর্কিত না। এখন রুল-ভিত্তিক, হাতে বসানো ওজন; সব উদাহরণ আর নমুনা ফাইল বানানো ও নিরাপদ। এটা অ্যান্টিভাইরাস, ফায়ারওয়াল বা VPN না। প্রতারণার শিকার হলে: ৯৯৯, অথবা কার্ড বা অফিশিয়াল অ্যাপে লেখা নম্বরে (যেমন বিকাশ ১৬২৪৭, নগদ ১৬১৬৭, রকেট ১৬২১৬)। বাংলাদেশ ব্যাংক ১৬২৩৬ · scamcheck.gov.bd।'
  }
 };
 
@@ -2562,7 +2562,7 @@ Object.assign(T.en, {
   fileActShort:{store_only:"Play Store only", never_run:"Never run it", dont_open:"Don't open it", no_macros:"No macros", delete:"Delete it", careful:"Be careful"},
   fileDosShort:{store:"Play Store only", delete:"Delete the file", access:"No “Accessibility”", call:"Call the official number"},
   settingsTitle:"Settings", whyLbl:"Why", patLbl:"Pattern:",
-  foot:'<b>FraudShield BD</b> · research prototype by Fabliha Afia (CSE, BUET) · ZRF ভবিষ্যৎ বিজ্ঞানীর খোঁজে ২০২৬<br>Not affiliated with bKash, Nagad, Rocket or any bank · Examples are fictional · Scammed? Call 999 or your provider (bKash 16247 · Nagad 16167 · Rocket 16216)'
+  foot:'<b>FraudShield BD</b> · research prototype by Fabliha Afia (CSE, BUET)<br>Not affiliated with bKash, Nagad, Rocket or any bank · Examples are fictional · Scammed? Call 999 or your provider (bKash 16247 · Nagad 16167 · Rocket 16216)'
 });
 Object.assign(T.bn, {
   chSub:"যেকোনো কিছুর ওপর মাউস রাখুন বা চাপ দিন, বিস্তারিত দেখবেন।", scSub:"", ftSub:"", tpSub:"", pvSub:"",
@@ -2579,7 +2579,7 @@ Object.assign(T.bn, {
   fileActShort:{store_only:"শুধু Play Store", never_run:"কখনো চালাবেন না", dont_open:"খুলবেন না", no_macros:"ম্যাক্রো না", delete:"ডিলিট করুন", careful:"সাবধান থাকুন"},
   fileDosShort:{store:"শুধু Play Store", delete:"ফাইল ডিলিট করুন", access:"“Accessibility” দেবেন না", call:"অফিশিয়াল নম্বরে ফোন"},
   settingsTitle:"সেটিংস", whyLbl:"কেন", patLbl:"প্যাটার্ন:",
-  foot:'<b>FraudShield BD</b> · রিসার্চ প্রোটোটাইপ: Fabliha Afia (সিএসই, বুয়েট) · ভবিষ্যৎ বিজ্ঞানীর খোঁজে ২০২৬<br>বিকাশ, নগদ, রকেট বা কোনো ব্যাংকের সাথে সম্পর্কিত না · সব উদাহরণ বানানো · প্রতারণার শিকার? ৯৯৯ বা প্রোভাইডারকে ফোন করুন (বিকাশ ১৬২৪৭ · নগদ ১৬১৬৭ · রকেট ১৬২১৬)'
+  foot:'<b>FraudShield BD</b> · রিসার্চ প্রোটোটাইপ: Fabliha Afia (সিএসই, বুয়েট)<br>বিকাশ, নগদ, রকেট বা কোনো ব্যাংকের সাথে সম্পর্কিত না · সব উদাহরণ বানানো · প্রতারণার শিকার? ৯৯৯ বা প্রোভাইডারকে ফোন করুন (বিকাশ ১৬২৪৭ · নগদ ১৬১৬৭ · রকেট ১৬২১৬)'
 });
 
 /* ================= Three viewing levels: Easy (zero knowledge) · Learn (why + mini lessons) · Expert (analysis console) ================= */

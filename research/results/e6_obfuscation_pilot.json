@@ -1,0 +1,104 @@
+{
+  "original": {
+    "messages_changed": 0,
+    "M0": {
+      "macro_f1": 0.9914,
+      "smish_recall": 0.9893,
+      "benign_FPR": 0.0036,
+      "missed_smish": "6/561",
+      "benign_false_alarms": "3/840"
+    },
+    "M0_defended": {
+      "macro_f1": 0.9914,
+      "smish_recall": 0.9893,
+      "benign_FPR": 0.0036,
+      "missed_smish": "6/561",
+      "benign_false_alarms": "3/840"
+    }
+  },
+  "P1_keyword_dots": {
+    "messages_changed": 327,
+    "M0": {
+      "macro_f1": 0.9914,
+      "smish_recall": 0.9893,
+      "benign_FPR": 0.0036,
+      "missed_smish": "6/561",
+      "benign_false_alarms": "3/840"
+    },
+    "M0_defended": {
+      "macro_f1": 0.9914,
+      "smish_recall": 0.9893,
+      "benign_FPR": 0.0036,
+      "missed_smish": "6/561",
+      "benign_false_alarms": "3/840"
+    }
+  },
+  "P2_leetspeak": {
+    "messages_changed": 1173,
+    "M0": {
+      "macro_f1": 0.9389,
+      "smish_recall": 0.8913,
+      "benign_FPR": 0.0083,
+      "missed_smish": "61/561",
+      "benign_false_alarms": "7/840"
+    },
+    "M0_defended": {
+      "macro_f1": 0.9914,
+      "smish_recall": 0.9893,
+      "benign_FPR": 0.0036,
+      "missed_smish": "6/561",
+      "benign_false_alarms": "3/840"
+    }
+  },
+  "P3_zero_width": {
+    "messages_changed": 688,
+    "M0": {
+      "macro_f1": 0.978,
+      "smish_recall": 0.959,
+      "benign_FPR": 0.0036,
+      "missed_smish": "23/561",
+      "benign_false_alarms": "3/840"
+    },
+    "M0_defended": {
+      "macro_f1": 0.9914,
+      "smish_recall": 0.9893,
+      "benign_FPR": 0.0036,
+      "missed_smish": "6/561",
+      "benign_false_alarms": "3/840"
+    }
+  },
+  "P4_confusable_latin": {
+    "messages_changed": 1185,
+    "M0": {
+      "macro_f1": 0.9005,
+      "smish_recall": 0.7968,
+      "benign_FPR": 0.0143,
+      "missed_smish": "114/561",
+      "benign_false_alarms": "12/840"
+    },
+    "M0_defended": {
+      "macro_f1": 0.9914,
+      "smish_recall": 0.9893,
+      "benign_FPR": 0.0036,
+      "missed_smish": "6/561",
+      "benign_false_alarms": "3/840"
+    }
+  },
+  "P5_spaced_letters": {
+    "messages_changed": 327,
+    "M0": {
+      "macro_f1": 0.9914,
+      "smish_recall": 0.9893,
+      "benign_FPR": 0.0036,
+      "missed_smish": "6/561",
+      "benign_false_alarms": "3/840"
+    },
+    "M0_defended": {
+      "macro_f1": 0.9914,
+      "smish_recall": 0.9893,
+      "benign_FPR": 0.0036,
+      "missed_smish": "6/561",
+      "benign_false_alarms": "3/840"
+    }
+  }
+}

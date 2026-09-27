@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fraudshield-bd/case/0.2",
+  "title": "FraudShield BD canonical data contract",
+  "description": "Case / Turn / Evidence / Decision records. Raw originals are kept separate from redacted model text; raw content never enters logs, analytics, chatbots or threat-intelligence submissions.",
+  "type": "object",
+  "required": ["case_id", "intake_channel", "permissions", "turns"],
+  "properties": {
+    "case_id": {"type": "string", "description": "random, local-only identifier"},
+    "intake_channel": {"enum": ["paste", "selected_turns", "android_share", "screenshot", "qr", "document", "user_report"]},
+    "source_fidelity": {"enum": ["typed_text", "share_payload", "ocr", "qr", "user_entered_metadata"]},
+    "permissions": {
+      "type": "object",
+      "properties": {
+        "local_processing": {"type": "boolean"},
+        "remote_threat_lookup": {"type": "boolean", "default": false},
+        "save_case": {"type": "boolean", "default": false},
+        "share_pattern_fingerprint": {"type": "boolean", "default": false}
+      }
+    },
+    "sender": {
+      "type": "object",
+      "properties": {
+        "channel_type": {"enum": ["personal_mobile", "alphanumeric_sender_id", "saved_contact", "unknown"]},
+        "value_masked": {"type": "string"},
+        "user_entered": {"type": "boolean", "description": "true = cannot be independently authenticated"}
+      }
+    },
+    "turns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["turn_id", "text_redacted"],
+        "properties": {
+          "turn_id": {"type": "integer", "minimum": 1},
+          "speaker": {"enum": ["other_party", "user", "unknown"]},
+          "text_redacted": {"type": "string", "description": "secrets and identifiers masked, action/negation meaning preserved"},
+          "timestamp": {"type": ["string", "null"]},
+          "extraction_confidence": {"type": "number", "minimum": 0, "maximum": 1},
+          "script_stage": {"type": "array", "items": {"enum": ["hook", "trust", "pressure", "extraction", "exit"]}, "description": "AI inference, not ground truth"},
+          "original_sha256": {"type": "string", "description": "integrity hash of the untouched original turn"}
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "turn_id", "feature_family", "detector_version"],
+        "properties": {
+          "evidence_id": {"type": "string"},
+          "turn_id": {"type": "integer"},
+          "source_item": {"type": "string"},
+          "span": {"type": "array", "items": {"type": "integer"}, "minItems": 2, "maxItems": 2, "description": "[start, end) offsets in the original text"},
+          "image_box": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4},
+          "feature_family": {"enum": ["action", "credential", "identity", "url", "urgency", "lure", "secrecy", "manipulation", "benign_counterevidence"]},
+          "detector_version": {"type": "string"},
+          "detector_confidence": {"type": ["number", "null"]},
+          "explanation": {"type": "string"}
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "properties": {
+        "alert_state": {"enum": ["high_concern", "caution_verify", "insufficient_evidence", "insufficient_information"]},
+        "justified_alert_turn": {"type": ["integer", "null"]},
+        "observed_indicators": {"type": "array", "items": {"type": "string"}},
+        "benign_indicators": {"type": "array", "items": {"type": "string"}},
+        "abstention_reason": {"type": ["string", "null"]},
+        "independent_verification_route": {"type": "string"},
+        "evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "score_is_calibrated": {"type": "boolean", "default": false}
+      }
+    }
+  }
+}

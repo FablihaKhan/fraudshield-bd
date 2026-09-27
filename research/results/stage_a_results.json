@@ -1,0 +1,226 @@
+{
+  "audit": {
+    "train": {
+      "n": 4903,
+      "labels": {
+        "smish": 1966,
+        "normal": 1742,
+        "promo": 1195
+      },
+      "sources": {
+        "Banglish": 1261,
+        "Bengali": 1253,
+        "English": 1214,
+        "CodeMix": 1175
+      },
+      "exact_dup_within": 0,
+      "norm_dup_within": 104
+    },
+    "validation": {
+      "n": 701,
+      "labels": {
+        "smish": 282,
+        "normal": 248,
+        "promo": 171
+      },
+      "sources": {
+        "Banglish": 180,
+        "Bengali": 179,
+        "English": 174,
+        "CodeMix": 168
+      },
+      "exact_dup_within": 0,
+      "norm_dup_within": 1,
+      "exact_overlap_with_train": 0,
+      "norm_overlap_with_train": 25
+    },
+    "test": {
+      "n": 1401,
+      "labels": {
+        "smish": 561,
+        "normal": 498,
+        "promo": 342
+      },
+      "sources": {
+        "Banglish": 360,
+        "Bengali": 358,
+        "English": 347,
+        "CodeMix": 336
+      },
+      "exact_dup_within": 0,
+      "norm_dup_within": 10,
+      "exact_overlap_with_train": 0,
+      "norm_overlap_with_train": 39
+    }
+  },
+  "threshold_from_validation": 0.6,
+  "validation": {
+    "n": 701,
+    "macro_f1": 0.9911,
+    "smish_precision": 1.0,
+    "smish_recall": 0.9858,
+    "benign_FPR": 0.0,
+    "benign_false_alarms": "0/419",
+    "missed_smish": "4/282"
+  },
+  "test": {
+    "n": 1401,
+    "macro_f1": 0.9914,
+    "smish_precision": 0.9946,
+    "smish_recall": 0.9893,
+    "benign_FPR": 0.0036,
+    "benign_false_alarms": "3/840",
+    "missed_smish": "6/561",
+    "macro_f1_95CI_bootstrap": [
+      0.986,
+      0.9959
+    ],
+    "confusion_matrix(rows=true normal,promo,smish)": [
+      [
+        495,
+        1,
+        2
+      ],
+      [
+        2,
+        339,
+        1
+      ],
+      [
+        4,
+        2,
+        555
+      ]
+    ]
+  },
+  "test_by_language": {
+    "Banglish": {
+      "n": 360,
+      "macro_f1": 0.9894,
+      "smish_precision": 0.9859,
+      "smish_recall": 0.9929,
+      "benign_FPR": 0.0091,
+      "benign_false_alarms": "2/219",
+      "missed_smish": "1/141"
+    },
+    "Bengali": {
+      "n": 358,
+      "macro_f1": 0.9883,
+      "smish_precision": 0.9928,
+      "smish_recall": 0.9787,
+      "benign_FPR": 0.0046,
+      "benign_false_alarms": "1/217",
+      "missed_smish": "3/141"
+    },
+    "CodeMix": {
+      "n": 336,
+      "macro_f1": 0.9965,
+      "smish_precision": 1.0,
+      "smish_recall": 1.0,
+      "benign_FPR": 0.0,
+      "benign_false_alarms": "0/198",
+      "missed_smish": "0/138"
+    },
+    "English": {
+      "n": 347,
+      "macro_f1": 0.9916,
+      "smish_precision": 1.0,
+      "smish_recall": 0.9858,
+      "benign_FPR": 0.0,
+      "benign_false_alarms": "0/206",
+      "missed_smish": "2/141"
+    }
+  },
+  "test_dedup_vs_train": {
+    "n": 1362,
+    "macro_f1": 0.9912,
+    "smish_precision": 0.9943,
+    "smish_recall": 0.9887,
+    "benign_FPR": 0.0036,
+    "benign_false_alarms": "3/831",
+    "missed_smish": "6/531"
+  },
+  "classification_report_test": {
+    "normal": {
+      "precision": 0.9880239520958084,
+      "recall": 0.9939759036144579,
+      "f1-score": 0.990990990990991,
+      "support": 498.0
+    },
+    "promo": {
+      "precision": 0.9912280701754386,
+      "recall": 0.9912280701754386,
+      "f1-score": 0.9912280701754386,
+      "support": 342.0
+    },
+    "smish": {
+      "precision": 0.9946236559139785,
+      "recall": 0.9893048128342246,
+      "f1-score": 0.9919571045576407,
+      "support": 561.0
+    },
+    "accuracy": 0.9914346895074947,
+    "macro avg": {
+      "precision": 0.9912918927284085,
+      "recall": 0.991502928874707,
+      "f1-score": 0.9913920552413567,
+      "support": 1401.0
+    },
+    "weighted avg": {
+      "precision": 0.991448821635585,
+      "recall": 0.9914346895074947,
+      "f1-score": 0.9914357238903284,
+      "support": 1401.0
+    }
+  },
+  "probes_illustrative": [
+    {
+      "kind": "benign_safety",
+      "text": "সতর্কতা: বিকাশ কখনো আপনার পিন বা ওটিপি চায় না। পিন ও ওটিপি কাউকে দেবেন না।",
+      "P(smish)": 0.279,
+      "decision": "normal"
+    },
+    {
+      "kind": "benign_safety",
+      "text": "Apnar OTP kauke diben na. Bank kokhono OTP chay na.",
+      "P(smish)": 0.695,
+      "decision": "smish"
+    },
+    {
+      "kind": "benign_otp",
+      "text": "আপনার অনলাইন লেনদেনের ওটিপি 482913। এটি ৫ মিনিট বৈধ। ওটিপি কাউকে জানাবেন না।",
+      "P(smish)": 0.405,
+      "decision": "promo"
+    },
+    {
+      "kind": "benign_notice",
+      "text": "প্রিয় গ্রাহক, আপনার বিকাশ অ্যাকাউন্টে ৫০০ টাকা ক্যাশ ইন হয়েছে।",
+      "P(smish)": 0.956,
+      "decision": "smish"
+    },
+    {
+      "kind": "scam_turn",
+      "text": "আপনার ফোনে একটা ৬ সংখ্যার কোড গেছে, কোডটা এখনই বলুন।",
+      "P(smish)": 0.341,
+      "decision": "normal"
+    },
+    {
+      "kind": "scam_turn",
+      "text": "আসসালামু আলাইকুম, আমি বিকাশ হেড অফিস থেকে বলছি।",
+      "P(smish)": 0.006,
+      "decision": "normal"
+    },
+    {
+      "kind": "scam_turn",
+      "text": "Ammu ami, amar notun number eta, save kore rakho.",
+      "P(smish)": 0.005,
+      "decision": "normal"
+    },
+    {
+      "kind": "scam_turn",
+      "text": "ekhon ekta emergency, 5000 taka bkash kore dao ei number e, jaldi, kauke bolo na.",
+      "P(smish)": 0.066,
+      "decision": "normal"
+    }
+  ]
+}

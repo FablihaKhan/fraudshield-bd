@@ -1,0 +1,95 @@
+{
+  "environment": {
+    "python": "3.12.10",
+    "scikit_learn": "1.8.0",
+    "seed": 13
+  },
+  "files": {
+    "test.parquet": {
+      "sha256": "2719d61aaf82b4b38e256e7e0d5ecee4a19588a7f522b863c713a435d0dffa31",
+      "bytes": 117557
+    },
+    "train.parquet": {
+      "sha256": "9fb92ea7e185297f4dd66442a7ed5f11ffc82d501c1ca2ea38385f430b9fe18e",
+      "bytes": 403979
+    },
+    "validation.parquet": {
+      "sha256": "a6a652087bbc328618cc39720a3ec66be53e106d9184dcf83791bc4da705a1fc",
+      "bytes": 60552
+    }
+  },
+  "stage_a_script_sha256": "4430ebe17ce6051e6911d87cb15334504bcb75c055befe5f9484774cfc45c823",
+  "licences": [
+    {
+      "source": "Bengali SMS Smishing Dataset (shariul-islam, Hugging Face)",
+      "licence": "MIT",
+      "use": "Stage A train/val/test; commercial use permitted with notice"
+    },
+    {
+      "source": "BTTC (Mendeley Data, 2026)",
+      "licence": "CC BY 4.0",
+      "use": "external evaluation after overlap removal; label mapping audit (spam != scam)"
+    },
+    {
+      "source": "Bangalabarta v3 (Mendeley Data, 2026)",
+      "licence": "CC BY-NC-SA 4.0",
+      "use": "research evaluation only; not in commercial model"
+    },
+    {
+      "source": "BanglaPhish-2026 (GitHub)",
+      "licence": "CC BY-NC 4.0",
+      "use": "synthetic challenge set only; report separately; not commercial"
+    },
+    {
+      "source": "LoveFraud02 (Mendeley Data, 2024)",
+      "licence": "CC BY 4.0",
+      "use": "parser / turn protocol validation; language to be confirmed"
+    },
+    {
+      "source": "COVA / COVA-X (arXiv 2604.11752, 2606.06879)",
+      "licence": "check release terms",
+      "use": "English synthetic external comparison only"
+    },
+    {
+      "source": "BanglaBERT weights (csebuetnlp)",
+      "licence": "CC BY-NC-SA 4.0",
+      "use": "research comparison (Stage B); not in commercial model"
+    },
+    {
+      "source": "FraudShield-BD own set (planned)",
+      "licence": "own",
+      "use": "main frozen multi-turn evaluation; synthetic or consented data only"
+    }
+  ],
+  "near_duplicate_audit": {
+    "test_items_jaccard_ge_0.9": 81,
+    "validation_items_jaccard_ge_0.9": 51,
+    "test_items_jaccard_ge_0.8": 156,
+    "validation_items_jaccard_ge_0.8": 81,
+    "test_items_jaccard_ge_0.7": 257,
+    "validation_items_jaccard_ge_0.7": 134,
+    "test_max_jaccard_quartiles": [
+      0.273,
+      0.444,
+      0.634
+    ],
+    "test_score_excluding_jaccard_ge_0.8": {
+      "n": 1245,
+      "macro_f1": 0.9904,
+      "smish_precision": 0.9937,
+      "smish_recall": 0.9874,
+      "benign_FPR": 0.0039,
+      "benign_false_alarms": "3/768",
+      "missed_smish": "6/477"
+    },
+    "test_score_excluding_jaccard_ge_0.7": {
+      "n": 1144,
+      "macro_f1": 0.9895,
+      "smish_precision": 0.9929,
+      "smish_recall": 0.9859,
+      "benign_FPR": 0.0042,
+      "benign_false_alarms": "3/718",
+      "missed_smish": "6/426"
+    }
+  }
+}

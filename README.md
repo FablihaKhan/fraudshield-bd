@@ -1,28 +1,95 @@
 # FraudShield BD
 
-Check a chat, a link, an app file (APK) or a QR code before you pay, and check a login page before you type a password. FraudShield BD reads Bangla, Banglish and English conversations turn by turn, explains every warning with evidence, and runs on your device.
+Scam protection and security learning for people in Bangladesh, in Bangla and English. It checks chats, links, login pages, apps and passwords before you act, explains *why* something is dangerous, and includes tools for developers and IT teams. Everything runs in the browser; nothing is uploaded.
 
-**Live prototype:** https://fablihakhan.github.io/fraudshield-bd/
+**Live demo:** https://fablihakhan.github.io/fraudshield-bd/
 
-Research prototype by **Fabliha Afia** (CSE, BUET) for the Ziaur Rahman Foundation competition “ভবিষ্যৎ বিজ্ঞানীর খোঁজে ২০২৬”.
+![Profile chooser](docs/images/profiles.png)
 
-- All examples and sample files are fictional and harmless.
-- Not affiliated with bKash, Nagad, Rocket or any bank.
-- Transparent rules with hand-set weights; the score is an uncalibrated indicator, not a probability.
-- Chats, links and files are checked in the browser. The optional DNS check sends only a site name to Google Public DNS, and only after the user agrees.
+## Why
 
-Three viewing levels: **Easy** (just what to do), **Learn** (why, with 30-second lessons) and **Expert** (raw analysis console).
+Most scams here do not arrive as one obviously bad message. Someone claims to be from bKash, builds trust over a few messages, adds pressure, and only then asks for the OTP. Existing Bangla tools look at one message at a time, and most people were never taught how these tricks work. I only learned most of it in my fourth-year web-security course.
 
-**Profiles**: the first screen asks “Who is using FraudShield?” — Everyday, Learner, Website & code, or Security pro. Each gets its own home with only its tools, and each tool opens on its own screen. No account; the choice stays on the device. The full website is one tap away.
+## What it does
 
-**Security Lab** (for IT teams and learners): open a Wi-Fi packet capture (.pcap / .pcapng) to spot ARP spoofing, DNS spoofing, look-alike domains and passwords sent without TLS, or a web server log (Apache / Nginx) for DDoS early warning, password guessing, scanning and injection attempts. Everything is analysed in the browser.
+When you open it, it asks who you are and gives you only the tools you need:
 
-**Password check**: shows how fast a password falls to online guessing versus an offline attack on a leaked database (slow salted hash vs fast MD5/SHA), makes 7-word passphrases, and offers an opt-in leak check with Have I Been Pwned that sends only the first 5 characters of the SHA-1 hash (k-anonymity). A live PBKDF2 demo in Expert view.
+| Profile | Tools |
+|---|---|
+| **Everyday** | Check a chat (turn by turn), check a link, "is this login page real?", check an app / APK or file, scan a QR code, what to do after losing money |
+| **Learner** | The same checks with explanations, 25 short lessons (phishing, OTP, man-in-the-middle, XSS, CSRF, clickjacking, SQL injection, password hashing, 2FA…), a password check, an email / page X-ray |
+| **Website & code** | Security grade for a website's headers and cookies, a code check for injection and XSS, server-log alerts |
+| **Security pro** | Wi-Fi capture (.pcap) analysis, log forensics, URL / file / conversation analysis with MITRE ATT&CK and CWE tags, JSON export |
 
-**Web attack tools** (Security Lab): Page & email X-ray (tracking pixels, CSRF images, auto-submitting forms, invisible iframes / clickjacking, lying links, browser-in-the-browser windows), Website check (security headers and cookie flags with an A–F grade and exact fixes), and Code check (SQL injection, command injection, XSS sinks, weak password hashing, with CWE ids and the safe way). Server logs now also flag cross-site forged requests (CSRF).
+Every result can be shown at three levels: **Easy** (what to do), **Learn** (why) and **Expert** (raw evidence).
 
-**Browser Shield** ([download](extension/FraudShield_BD_Browser_Shield.zip)): a Chrome / Edge add-on (Manifest V3, `storage` permission only) that pauses you before a password goes to a look-alike or unlocked page, neutralises invisible frames, holds back forms a page sends to another site by script (CSRF), and warns on links carrying XSS / SQL injection code. Install: unzip, open `chrome://extensions`, turn on Developer mode, click "Load unpacked".
+There is also a **Browser Shield** add-on for Chrome and Edge ([`extension/`](extension/)). It pauses you before typing a password on a look-alike or unencrypted page, makes invisible click-jacking frames unclickable, and holds back forms a page tries to send to another site on its own.
 
-`samples/` holds harmless test files: two QR images, a fake "bKash Update" APK, a disguised "PDF" that is really an app, a simple calculator APK, two synthetic packet captures (café Wi-Fi attack, normal home Wi-Fi) and three synthetic server logs (normal, DDoS, attack attempts). All addresses in them come from private or documentation ranges.
+| | |
+|---|---|
+| ![Login guard](docs/images/login_guard.png) | ![Password check](docs/images/password_check.png) |
+| ![Website check](docs/images/website_check.png) | ![Wi-Fi capture](docs/images/wifi_capture.png) |
 
-Third-party: [jsQR](https://github.com/cozmo/jsQR) 1.4.0, Apache License 2.0.
+## How the chat check works
+
+For every new message, using only the messages so far, the engine:
+
+1. cleans the text (Bangla digits, invisible characters, look-alike letters, leetspeak);
+2. finds what is being asked (code, PIN, money, link, app) and whether it is a request or a warning ("never share your PIN");
+3. compares who they claim to be with who is actually sending;
+4. parses any link without opening it;
+5. tracks the stages of the scam (hook → trust → pressure → request).
+
+It answers **High concern**, **Caution: verify** or **Insufficient evidence**, and quotes the evidence. It never says "safe". The weights are set by hand for now, so the score is an indicator, not a probability.
+
+![Pipeline](docs/images/pipeline.png)
+
+## Findings so far
+
+Experiments on the public Bengali SMS Smishing dataset (7,005 messages in Bangla, Banglish, English and code-mixed; details in [`research/`](research/)):
+
+| Test | Result |
+|---|---|
+| Single-message baseline (TF-IDF + logistic regression), test macro-F1 | **0.991** (95% CI 0.986–0.996) |
+| Same, after removing 156 near-duplicates of training messages | 0.990 |
+| Harmful requests caught when shown messages from the middle of a conversation | 0 of 2 |
+| Genuine messages wrongly flagged in the same probe | 2 of 4 |
+| Scam recall with Cyrillic look-alike letters | drops from 0.989 to **0.797** |
+| Same, with the text-cleaning defence | back to **0.989** |
+
+A single-message model scores well on the benchmark but misses scams that build up over a conversation. That gap is what this project works on. The look-alike result is a pilot: the defence was designed knowing the attack types.
+
+![Look-alike letters pilot](docs/images/e6_robustness.png)
+
+## Project structure
+
+```
+index.html          the app (built, self-contained)
+jsQR.js             QR decoding library
+src/                app source, build script, sample generators, tests
+extension/          Browser Shield add-on (load unpacked) and its zip
+research/           Python experiments, data splits, results, data schema
+samples/            harmless test files: QR images, APKs, a disguised PDF, Wi-Fi captures, server logs
+docs/images/        screenshots and figures
+```
+
+## Run it
+
+- **App:** open `index.html` in a browser (keep `jsQR.js` next to it for QR scanning), or use the live demo.
+- **Rebuild:** `python src/build.py`
+- **Tests:** `node src/tests/run_tests.js` (129 checks)
+- **Browser Shield:** open `chrome://extensions`, turn on Developer mode, click **Load unpacked** and select the `extension/` folder.
+- **Research:** see [`research/README.md`](research/README.md).
+
+## Limitations
+
+- The checks are hand-written rules, so they can miss new tricks or warn on safe things.
+- Conversation-level learned models and a labelled Bangla conversation dataset are the next step, not done yet.
+- Screenshot reading (OCR) and an Android app are planned.
+- The Browser Shield is a prototype: it installs in developer mode and checks the top page only.
+
+All sample messages and files are fictional. This project is not affiliated with bKash, Nagad, Rocket or any bank.
+
+## Author
+
+Fabliha Afia, Department of CSE, Bangladesh University of Engineering and Technology (BUET)

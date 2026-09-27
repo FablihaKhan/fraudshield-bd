@@ -1,0 +1,65 @@
+/* FraudShield BD Browser Shield: words on screen (English + easy Bangla) */
+const FSBD_S = {
+ en: {
+  name: "FraudShield BD", tag: "Browser Shield",
+  safe: "No tricks found on this page", careful: "Be careful on this page", danger: "This page is dangerous",
+  off: "Shield is off", offSub: "Turn it on to check pages again.", notWeb: "This page can't be checked.",
+  easy: "Easy", expert: "Expert", on: "On",
+  leave: "Leave this page", dismiss: "Hide", understand: "I understand the risk", wait: "Wait…",
+  block: "Block it", allow: "Allow", openAnyway: "Open anyway", goBack: "Don't open", show: "Show it",
+  pixels: "spy pixels", frames: "hidden frames", forms: "forms held back", links: "risky links",
+  why: "Why?", lesson: "Learn more on FraudShield", site: "Website", real: "Real owner",
+  f: {
+   lookalike: d => `This is not the real ${d.brand || "website"}. It only looks like it (${d.host}).`,
+   brand_fake: d => `This page uses the name ${d.brand} but is not ${d.brand}'s website (${d.host}).`,
+   deceptive: d => `The address is built to trick you. The real owner is ${d.reg}.`,
+   no_tls: d => "This page has no lock (http). People on the same Wi-Fi could read what you type.",
+   payload: d => `This page address carries attack code (${d.kinds}). A real site can be tricked into running it as you (reflected XSS).`,
+   pw_danger: d => `Stop! Don't type your password here. ${d.why}`,
+   pw_http: d => "Your password would travel without a lock (http).",
+   form_foreign: d => `The password box sends to ${d.host}, a different website.`,
+   hidden_frame: d => `${d.n} invisible frame(s) sit on this page. Clicks on them could go to another site (clickjacking). We made them unclickable.`,
+   cursor: d => "This page hides the real mouse pointer. A fake one may show the wrong place (cursorjacking).",
+   pixel: d => `${d.n} spy pixel(s) tell ${d.hosts} that you opened this page.`,
+   csrf: d => `This page tried to send a form to ${d.host} by itself, without your click (${d.how}). This is how CSRF attacks move money.`,
+   csrf_img: d => "A hidden picture calls a money or settings address on another site (CSRF).",
+   bitb: d => "This page draws a fake login window with a real-looking address (browser-in-browser).",
+   link_bad: d => `This link goes to ${d.host}, ${d.why}.`,
+   link_shown: d => `The link text says ${d.shown}, but it goes to ${d.host}.`,
+   link_payload: d => `This link carries attack code (${d.kinds}).`
+  },
+  held: "Form held back", heldSub: "Single sign-on pages do this for real. If you didn't expect it, block it.",
+  footer: "Checks run on this computer. Nothing is sent.", made: "Made by Fabliha Afia · BUET CSE"
+ },
+ bn: {
+  name: "FraudShield BD", tag: "ব্রাউজার শিল্ড",
+  safe: "এই পেজে কোনো চালাকি পাইনি", careful: "এই পেজে সাবধান", danger: "এই পেজ বিপজ্জনক",
+  off: "শিল্ড বন্ধ", offSub: "আবার চেক করতে চালু করুন।", notWeb: "এই পেজ চেক করা যায় না।",
+  easy: "সহজ", expert: "এক্সপার্ট", on: "চালু",
+  leave: "পেজ থেকে বের হন", dismiss: "লুকাও", understand: "ঝুঁকি বুঝেছি", wait: "একটু দাঁড়ান…",
+  block: "আটকাও", allow: "যেতে দাও", openAnyway: "তবু খোলো", goBack: "খুলব না", show: "দেখাও",
+  pixels: "গোয়েন্দা পিক্সেল", frames: "লুকানো ফ্রেম", forms: "আটকানো ফর্ম", links: "ঝুঁকির লিংক",
+  why: "কেন?", lesson: "FraudShield-এ আরও জানুন", site: "ওয়েবসাইট", real: "আসল মালিক",
+  f: {
+   lookalike: d => `এটা আসল ${d.brand || "ওয়েবসাইট"} না। শুধু দেখতে একই রকম (${d.host})।`,
+   brand_fake: d => `এই পেজ ${d.brand}-এর নাম ব্যবহার করছে, কিন্তু এটা ${d.brand}-এর ওয়েবসাইট না (${d.host})।`,
+   deceptive: d => `ঠিকানাটা ধোঁকা দেওয়ার জন্য বানানো। আসল মালিক ${d.reg}।`,
+   no_tls: d => "এই পেজে তালা নেই (http)। একই Wi-Fi-র কেউ আপনার লেখা পড়তে পারে।",
+   payload: d => `এই পেজের ঠিকানায় হামলার কোড আছে (${d.kinds})। আসল সাইটকেও ধোঁকা দিয়ে আপনার হয়ে এটা চালানো যায় (reflected XSS)।`,
+   pw_danger: d => `থামুন! এখানে পাসওয়ার্ড দেবেন না। ${d.why}`,
+   pw_http: d => "আপনার পাসওয়ার্ড তালা ছাড়া (http) যাবে।",
+   form_foreign: d => `পাসওয়ার্ডের ঘরটা ${d.host}-এ পাঠায়, যা অন্য একটা ওয়েবসাইট।`,
+   hidden_frame: d => `এই পেজে ${d.n}টা অদৃশ্য ফ্রেম আছে। এতে ক্লিক করলে অন্য সাইটে চলে যেতে পারে (ক্লিকজ্যাকিং)। আমরা এগুলোতে ক্লিক বন্ধ করেছি।`,
+   cursor: d => "এই পেজ আসল মাউস পয়েন্টার লুকিয়ে রেখেছে। নকলটা ভুল জায়গা দেখাতে পারে (কার্সরজ্যাকিং)।",
+   pixel: d => `${d.n}টা গোয়েন্দা পিক্সেল ${d.hosts}-কে জানায় আপনি এই পেজ খুলেছেন।`,
+   csrf: d => `এই পেজ আপনার ক্লিক ছাড়াই নিজে থেকে ${d.host}-এ একটা ফর্ম পাঠাতে চেয়েছে (${d.how})। CSRF হামলায় এভাবেই টাকা সরানো হয়।`,
+   csrf_img: d => "একটা লুকানো ছবি অন্য সাইটের টাকা বা সেটিংসের ঠিকানায় যায় (CSRF)।",
+   bitb: d => "এই পেজ আসলের মতো ঠিকানাসহ নকল লগইন জানালা আঁকে (browser-in-browser)।",
+   link_bad: d => `এই লিংক যায় ${d.host}-এ, ${d.why}।`,
+   link_shown: d => `লিংকে লেখা ${d.shown}, কিন্তু যায় ${d.host}-এ।`,
+   link_payload: d => `এই লিংকে হামলার কোড আছে (${d.kinds})।`
+  },
+  held: "ফর্ম আটকানো হয়েছে", heldSub: "সিঙ্গেল সাইন-অন পেজ আসলেই এমন করে। আশা না করলে আটকান।",
+  footer: "সব চেক এই কম্পিউটারেই হয়। কিছুই পাঠানো হয় না।", made: "বানিয়েছেন ফাবলিহা আফিয়া · BUET CSE"
+ }
+};
